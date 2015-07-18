@@ -9,10 +9,10 @@ See `demo/index.js` for a usage example.
 $ npm install react-demo
 ```
 
-## Run a demo of react-demo
+## Run examples
 
 ```
 $ npm install
-$ npm run run-demo
+$ npm run examples
 $ open http://localhost:3000
 ```

@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && babel src --out-dir dist",
-    "run-demo": "heatpack examples/index.js",
+    "examples": "heatpack examples/index.js",
     "prepublish": "npm run build"
   },
   "repository": {
