@@ -12,9 +12,9 @@ const targets = [
     }
   },
   {
-    target: require('./targets/Button'),
+    target: 'button', // Built-in in react component
     props: {
-      children: Demo.props.string('My button 2'),
+      children: Demo.props.constant('Built-in button'),
       disabled: Demo.props.bool(true)
     }
   }
