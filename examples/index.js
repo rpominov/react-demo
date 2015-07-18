@@ -12,7 +12,7 @@ const targets = [
     }
   },
   {
-    target: 'button', // Built-in in react component
+    target: 'button', // Built-in component
     props: {
       children: Demo.props.constant('Built-in button'),
       disabled: Demo.props.bool(true)
