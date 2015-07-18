@@ -1,6 +1,6 @@
 import './styles.css'
 import React from 'react'
-import Demo from '../src/Demo'
+import Demo from '../src'
 
 
 const targets = [
