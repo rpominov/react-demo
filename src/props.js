@@ -6,6 +6,7 @@ export default {
 
   constant(initialValue) {
     return {
+      type: 'value',
       Control: Noop,
       initialValue
     }
@@ -13,6 +14,7 @@ export default {
 
   string(initialValue) {
     return {
+      type: 'value',
       Control: String,
       initialValue
     }
@@ -20,9 +22,30 @@ export default {
 
   bool(initialValue) {
     return {
+      type: 'value',
       Control: Bool,
       initialValue
     }
+  },
+
+  callback: {
+
+    log(map = null) {
+      return {
+        type: 'callback',
+        callbackType: 'log',
+        map
+      }
+    },
+
+    logLatest(map = null) {
+      return {
+        type: 'callback',
+        callbackType: 'logLatest',
+        map
+      }
+    }
+
   }
 
 }

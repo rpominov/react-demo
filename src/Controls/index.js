@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from './Layout'
+import Log from './Log'
 
 
 
@@ -26,10 +27,15 @@ export default React.createClass({
     )
   },
 
+  renderLog(key) {
+    return <Log name={key} items={this.props.logs[key]} />
+  },
+
   render() {
     return (
       <Layout>
         {Object.keys(this.props.props).map(this.renderControl)}
+        {Object.keys(this.props.logs).map(this.renderLog)}
       </Layout>
     )
   }

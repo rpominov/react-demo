@@ -8,14 +8,17 @@ const targets = [
     target: require('./targets/Button'),
     props: {
       children: Demo.props.string('My button'),
-      disabled: Demo.props.bool(false)
+      disabled: Demo.props.bool(false),
+      onClick: Demo.props.callback.log()
     }
   },
   {
-    target: 'button', // Built-in component
+    target: 'input', // Built-in component
     props: {
-      children: Demo.props.constant('Built-in button'),
-      disabled: Demo.props.bool(true)
+      type: Demo.props.constant('text'),
+      value: Demo.props.string('Built-in text input'),
+      disabled: Demo.props.bool(false),
+      onChange: Demo.props.callback.logLatest(e => e.target.value)
     }
   }
 ]
