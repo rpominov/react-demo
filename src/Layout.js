@@ -3,9 +3,12 @@ import styles from './styles'
 
 export default React.createClass({
 
+  displayName: 'Demo.Layout',
+
   propTypes: {
     padding: React.PropTypes.bool,
-    children: React.PropTypes.node.isRequired
+    controls: React.PropTypes.node.isRequired,
+    component: React.PropTypes.node.isRequired
   },
 
   getDefaultProps() {

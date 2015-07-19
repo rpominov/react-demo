@@ -1,3 +1,5 @@
+/* eslint no-reserved-keys:0 */
+
 const monospaceFont = 'Consolas, "Liberation Mono", Menlo, Courier, monospace'
 
 export default {
@@ -13,7 +15,7 @@ export default {
   },
   controls: {
     layout: {
-      width: '20em',
+      width: '20em'
     },
     group: {
       background: '#eee',

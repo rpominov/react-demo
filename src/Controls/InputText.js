@@ -3,8 +3,11 @@ import styles from '../styles'
 
 export default React.createClass({
 
-  handleChange(e) {
-    this.props.onChange(e.target.value)
+  displayName: 'Demo.Controls.InputText',
+
+  propTypes: {
+    value: React.PropTypes.string.isRequired,
+    onChange: React.PropTypes.func.isRequired
   },
 
   render() {
@@ -15,6 +18,10 @@ export default React.createClass({
         value={this.props.value}
         onChange={this.handleChange} />
     )
+  },
+
+  handleChange(e) {
+    this.props.onChange(e.target.value)
   }
 
 })

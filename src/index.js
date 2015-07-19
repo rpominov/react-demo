@@ -17,16 +17,20 @@ function stringify(x) {
 
 export default React.createClass({
 
-  statics: {props},
+  displayName: 'Demo',
 
   propTypes: {
     props: React.PropTypes.object,
-    target: React.PropTypes.instanceOf(React.Component).isRequired
+    padding: React.PropTypes.bool,
+    target: React.PropTypes.any.isRequired // TODO: what is the right type for Components?
   },
+
+  statics: {props},
 
   getDefaultProps() {
     return {
-      props: {}
+      props: {},
+      padding: true
     }
   },
 
@@ -58,10 +62,6 @@ export default React.createClass({
     }
   },
 
-  hangelValuesChange(newValues) {
-    this.setState({values: newValues})
-  },
-
   render() {
     return (
       <Layout
@@ -79,6 +79,10 @@ export default React.createClass({
       />
 
     )
+  },
+
+  hangelValuesChange(newValues) {
+    this.setState({values: newValues})
   }
 
 })

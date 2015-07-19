@@ -25,10 +25,13 @@ const targets = [
 
 
 export default React.createClass({
+
+  displayName: 'Demo.Examples',
+
   render() {
     return (
       <div>
-        {targets.map(x => <Demo {...x} />)}
+        {targets.map((x, i) => <Demo {...x} key={i} />)}
       </div>
     )
   }

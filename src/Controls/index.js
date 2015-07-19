@@ -6,14 +6,13 @@ import Log from './Log'
 
 export default React.createClass({
 
+  displayName: 'Demo.Controls',
 
-  handleChange(key) {
-    return (newValue) => {
-      this.props.onChange({
-        ...this.props.values,
-        [key]: newValue
-      })
-    }
+  propTypes: {
+    values: React.PropTypes.object.isRequired,
+    logs: React.PropTypes.object.isRequired,
+    props: React.PropTypes.object.isRequired,
+    onChange: React.PropTypes.func.isRequired
   },
 
   renderControl(key) {
@@ -21,6 +20,7 @@ export default React.createClass({
     const value = this.props.values[key]
     return (
       <Control
+        key={key}
         name={key}
         value={value}
         onChange={this.handleChange(key)} />
@@ -28,7 +28,7 @@ export default React.createClass({
   },
 
   renderLog(key) {
-    return <Log name={key} items={this.props.logs[key]} />
+    return <Log key={key} name={key} items={this.props.logs[key]} />
   },
 
   render() {
@@ -38,6 +38,15 @@ export default React.createClass({
         {Object.keys(this.props.logs).map(this.renderLog)}
       </Layout>
     )
+  },
+
+  handleChange(key) {
+    return (newValue) => {
+      this.props.onChange({
+        ...this.props.values,
+        [key]: newValue
+      })
+    }
   }
 
 })
