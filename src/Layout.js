@@ -6,31 +6,25 @@ export default React.createClass({
   displayName: 'Demo.Layout',
 
   propTypes: {
-    padding: React.PropTypes.bool,
+    padding: React.PropTypes.bool.isRequired,
     controls: React.PropTypes.node.isRequired,
     component: React.PropTypes.node.isRequired
   },
 
-  getDefaultProps() {
+  getCompStyle() {
     return {
-      padding: true
-    }
-  },
-
-  getStyle() {
-    return {
-      ...styles.layout,
+      ...styles.layout.component,
       padding: this.props.padding ? '1em' : '0'
     }
   },
 
   render() {
     return (
-      <div style={this.getStyle()}>
+      <div style={styles.layout}>
         <div style={styles.layout.controls}>
           {this.props.controls}
         </div>
-        <div style={styles.layout.component}>
+        <div style={this.getCompStyle()}>
           {this.props.component}
         </div>
       </div>

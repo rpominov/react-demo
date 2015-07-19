@@ -4,15 +4,7 @@ import pick from 'lodash/object/pick'
 import props from './props'
 import Layout from './Layout'
 import Controls from './Controls'
-
-
-function stringify(x) {
-  try {
-    return JSON.stringify(x)
-  } catch(e) {
-    return JSON.stringify(e.message)
-  }
-}
+import stringify from './stringify'
 
 
 export default React.createClass({
@@ -22,7 +14,7 @@ export default React.createClass({
   propTypes: {
     props: React.PropTypes.object,
     padding: React.PropTypes.bool,
-    target: React.PropTypes.any.isRequired // TODO: what is the right type for Components?
+    target: React.PropTypes.oneOfType([React.PropTypes.func, React.PropTypes.string]).isRequired
   },
 
   statics: {props},
@@ -62,6 +54,11 @@ export default React.createClass({
     }
   },
 
+  getTargetName() {
+    const {target} = this.props
+    return (typeof target === 'string') ? target : (target.displayName || 'Comp')
+  },
+
   render() {
     return (
       <Layout
@@ -71,6 +68,7 @@ export default React.createClass({
         }
         controls={
           <Controls
+            targetName={this.getTargetName()}
             props={this.getPropsValue()}
             values={this.state.values}
             onChange={this.hangelValuesChange}

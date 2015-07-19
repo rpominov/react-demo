@@ -14,6 +14,7 @@ const targets = [
   },
   {
     target: 'input', // Built-in component
+    padding: false,
     props: {
       type: Demo.props.constant('text'),
       value: Demo.props.string('Built-in text input'),
