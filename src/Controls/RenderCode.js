@@ -1,6 +1,5 @@
 import React from 'react'
 import reject from 'lodash/collection/reject'
-import Group from './Group'
 import stringify from '../stringify'
 import styles from '../styles'
 
@@ -23,7 +22,7 @@ export default React.createClass({
   propTypes: {
     name: React.PropTypes.string.isRequired,
     props: React.PropTypes.object.isRequired,
-    callbacks: React.PropTypes.object.isRequired
+    logs: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
   },
 
   getPropCode(key) {
@@ -47,7 +46,7 @@ export default React.createClass({
   },
 
   getChildrenCode() {
-    const {children} = this.props.props
+    const {children} = this.props.props // eslint-disable-line react/prop-types
     if (!children) {
       return '\n/>'
     }
