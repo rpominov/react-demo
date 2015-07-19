@@ -3,7 +3,7 @@
 A React-component for creating demos of other components.
 See `examples/index.js` for a usage example.
 
-![](http://g.recordit.co/5sgldizu5z.gif)
+![](http://g.recordit.co/NTeR5DBJpK.gif)
 
 ## Installation
 
