@@ -7,14 +7,18 @@ See `examples/index.js` for a usage example.
 ## Example
 
 ```js
-<Demo
-  target={require('./targets/Button')}
+import React from 'react'
+import Demo from 'react-demo'
+import Button from './my-components/Button'
+
+React.render(<Demo
+  target={Button}
   props={{
     children: Demo.props.string('My button'),
     disabled: Demo.props.bool(false),
     onClick: Demo.props.callback.log()
   }}
-/>
+/>, el)
 ```
 
 ![](http://g.recordit.co/NTeR5DBJpK.gif)
