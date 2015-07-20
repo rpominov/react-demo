@@ -1,6 +1,6 @@
 /* eslint no-reserved-keys:0 */
 
-const monospaceFont = 'Monaco, Consolas, "Lucida Console", monospace'
+const monospaceFont = 'Menlo, Monaco, Consolas, "Lucida Console", monospace'
 
 const transBg = {
   backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Zz48cGF0aCBmaWxsPSIjZjVmNWY1IiBkPSJNMCAwaDEwMHYxMDBIMHptMTAwIDEwMGgxMDB2MTAwSDEwMHoiLz48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTAwIDBoMTAwdjEwMEgxMDB6TTAgMTAwaDEwMHYxMDBIMHoiLz48L2c+PC9zdmc+)',
@@ -57,6 +57,7 @@ export default {
       borderLeft: 'solid 1px #e5e5e5',
       fontFamily: monospaceFont,
       fontSize: '10px',
+      lineHeight: '1.2',
       item: {
         padding: '0.3em',
         borderBottom: 'solid 1px #e5e5e5'
