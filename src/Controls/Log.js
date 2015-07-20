@@ -1,5 +1,6 @@
 import React from 'react'
 import Group from './Group'
+import styles from '../styles'
 
 export default React.createClass({
 
@@ -13,8 +14,9 @@ export default React.createClass({
   render() {
     return (
       <Group name={this.props.name}>
-        <div>
-          {this.props.items.map((x, i) => <div key={i}>{x}</div>)}
+        <div style={styles.controls.log}>
+          {this.props.items.map((x, i) =>
+            <div key={i} style={styles.controls.log.item}>{x}</div>)}
         </div>
       </Group>
     )
