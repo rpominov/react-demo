@@ -23,9 +23,6 @@
     "url": "https://github.com/rpominov/react-demo/issues"
   },
   "homepage": "https://github.com/rpominov/react-demo",
-  "peerDependencies": {
-    "react": "^0.13.3"
-  },
   "devDependencies": {
     "babel": "^5.6.23",
     "babel-eslint": "^3.1.23",
