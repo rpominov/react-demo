@@ -65,21 +65,12 @@ export default React.createClass({
     return (typeof target === 'string') ? target : (target.displayName || 'Comp')
   },
 
-  updateValues(changes) {
-    this.setState({
-      values: {
-        ...this.state.values,
-        ...changes
-      }
-    })
-  },
-
   render() {
-    const props = {...this.state.values, ...this.getCallbacks()}
+    const componentProps = {...this.state.values, ...this.getCallbacks()}
 
     const component = this.props.children
-       ? this.props.children(props, this.updateValues)
-       : <this.props.target {...props} />
+       ? this.props.children(componentProps, this.updateValues)
+       : <this.props.target {...componentProps} />
 
     return (
       <Layout
@@ -97,6 +88,15 @@ export default React.createClass({
       />
 
     )
+  },
+
+  updateValues(changes) {
+    this.setState({
+      values: {
+        ...this.state.values,
+        ...changes
+      }
+    })
   },
 
   hangelValuesChange(newValues) {
