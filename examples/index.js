@@ -12,6 +12,21 @@ const targets = [
     }
   },
   {
+    children: (props, update) => (
+      <input
+        {...props}
+        type="text"
+        onChange={event => update({
+          value: event.target.value
+        })}
+      />
+    ),
+    props: {
+      value: Demo.props.string('Built-in text input'),
+      disabled: Demo.props.bool(false)
+    }
+  },
+  {
     target: 'input', // Built-in component
     padding: false,
     props: {
