@@ -10,7 +10,7 @@ export default React.createClass({
 
   render() {
     return (
-      <button disabled={this.props.disabled} onClick={(e) => this.props.onClick(e)}>
+      <button disabled={this.props.disabled} onClick={this.props.onClick}>
         {this.props.children}
       </button>
     )

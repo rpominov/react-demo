@@ -21,7 +21,7 @@ React.render(<Demo
 />, el)
 ```
 
-![](http://g.recordit.co/uNEzzlw1K8.gif)
+![](http://g.recordit.co/bBtHoepQZy.gif)
 
 
 ## Installation
