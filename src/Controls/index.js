@@ -18,9 +18,11 @@ export default React.createClass({
 
   renderControl(key) {
     const Control = this.props.props[key].Control
+    const props = this.props.props[key].controlProps || {}
     const value = this.props.values[key]
     return (
       <Control
+        {...props}
         key={key}
         name={key}
         value={value}
