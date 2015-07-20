@@ -14,7 +14,8 @@ export default React.createClass({
   propTypes: {
     props: React.PropTypes.object,
     padding: React.PropTypes.bool,
-    target: React.PropTypes.oneOfType([React.PropTypes.func, React.PropTypes.string]).isRequired
+    target: React.PropTypes.oneOfType([React.PropTypes.func, React.PropTypes.string]),
+    children: React.PropTypes.func
   },
 
   statics: {props},
@@ -56,18 +57,37 @@ export default React.createClass({
 
   getTargetName() {
     const {target} = this.props
+
+    if (!target) {
+      return 'Comp'
+    }
+
     return (typeof target === 'string') ? target : (target.displayName || 'Comp')
   },
 
+  updateValues(changes) {
+    this.setState({
+      values: {
+        ...this.state.values,
+        ...changes
+      }
+    })
+  },
+
   render() {
+    const props = {...this.state.values, ...this.getCallbacks()}
+
+    const component = this.props.children
+       ? this.props.children(props, this.updateValues)
+       : <this.props.target {...props} />
+
     return (
       <Layout
         padding={this.props.padding}
-        component={
-          <this.props.target {...this.state.values} {...this.getCallbacks()} />
-        }
+        component={component}
         controls={
           <Controls
+            renderCode={!!this.props.target}
             targetName={this.getTargetName()}
             props={this.getPropsValue()}
             values={this.state.values}
