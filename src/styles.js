@@ -58,6 +58,7 @@ export default {
       fontFamily: monospaceFont,
       fontSize: '10px',
       lineHeight: '1.2',
+      overflow: 'auto',
       item: {
         padding: '0.3em',
         borderBottom: 'solid 1px #e5e5e5'
@@ -70,7 +71,8 @@ export default {
       padding: '4px',
       marginBottom: '5px',
       whiteSpace: 'pre',
-      background: '#fff'
+      background: '#fff',
+      overflow: 'auto'
     }
   }
 }
