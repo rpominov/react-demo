@@ -5,6 +5,7 @@
     "semi": [2, "never"],
     "no-multiple-empty-lines": 0,
     "padded-blocks": 0,
-    "comma-dangle": [2, "never"]
+    "comma-dangle": [2, "never"],
+    "no-reserved-keys": 0
   }
 }

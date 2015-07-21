@@ -1,5 +1,3 @@
-/* eslint no-reserved-keys:0 */
-
 const monospaceFont = 'Menlo, Monaco, Consolas, "Lucida Console", monospace'
 
 const transBg = {
