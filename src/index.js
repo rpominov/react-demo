@@ -1,7 +1,7 @@
 import React from 'react'
 import mapValues from 'lodash/object/mapValues'
 import pick from 'lodash/object/pick'
-import props from './props'
+import propsDefenitions from './props'
 import Layout from './Layout'
 import Controls from './Controls'
 import stringify from './stringify'
@@ -18,7 +18,7 @@ export default React.createClass({
     children: React.PropTypes.func
   },
 
-  statics: {props},
+  statics: {props: propsDefenitions},
 
   getDefaultProps() {
     return {
@@ -65,15 +65,6 @@ export default React.createClass({
     return (typeof target === 'string') ? target : (target.displayName || 'Comp')
   },
 
-  updateValues(changes) {
-    this.setState({
-      values: {
-        ...this.state.values,
-        ...changes
-      }
-    })
-  },
-
   render() {
     const props = {...this.state.values, ...this.getCallbacks()}
 
@@ -97,6 +88,15 @@ export default React.createClass({
       />
 
     )
+  },
+
+  updateValues(changes) {
+    this.setState({
+      values: {
+        ...this.state.values,
+        ...changes
+      }
+    })
   },
 
   hangelValuesChange(newValues) {
