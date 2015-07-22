@@ -6,7 +6,10 @@ const targets = [
   {
     target: require('./targets/Button'),
     props: {
-      children: Demo.props.string('My button'),
+      children: Demo.props.choices('My button', [
+        'My button',
+        'Your button'
+      ]),
       disabled: Demo.props.bool(false),
       onClick: Demo.props.callback.log()
     }

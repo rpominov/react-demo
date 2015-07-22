@@ -66,11 +66,11 @@ export default React.createClass({
   },
 
   render() {
-    const props = {...this.state.values, ...this.getCallbacks()}
+    const componentProps = {...this.state.values, ...this.getCallbacks()}
 
     const component = this.props.children
-       ? this.props.children(props, this.updateValues)
-       : <this.props.target {...props} />
+       ? this.props.children(componentProps, this.updateValues)
+       : <this.props.target {...componentProps} />
 
     return (
       <Layout

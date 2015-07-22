@@ -1,6 +1,7 @@
 import Noop from './Controls/ControlNoop'
 import String from './Controls/ControlString'
 import Bool from './Controls/ControlBool'
+import Choices from './Controls/ControlChoices'
 
 export default {
 
@@ -25,6 +26,17 @@ export default {
       type: 'value',
       Control: Bool,
       initialValue
+    }
+  },
+
+  choices(initialValue, choices) {
+    return {
+      type: 'value',
+      Control: Choices,
+      initialValue,
+      controlProps: {
+        choices
+      }
     }
   },
 
