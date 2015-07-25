@@ -12,26 +12,6 @@ const targets = [
     }
   },
   {
-    children: (props, update) => (
-      <div style={{background: props.background, padding: props.padding, display: 'inline-block'}}>
-        <input
-          value={props.value}
-          disabled={props.disabled}
-          type="text"
-          onChange={event => update({
-            value: event.target.value
-          })}
-        />
-      </div>
-    ),
-    props: {
-      value: Demo.props.string('Built-in text input'),
-      disabled: Demo.props.bool(false),
-      background: Demo.props.string('green'),
-      padding: Demo.props.string('5px')
-    }
-  },
-  {
     target: 'input', // Built-in component
     padding: false,
     props: {
@@ -39,6 +19,28 @@ const targets = [
       value: Demo.props.string('Built-in text input'),
       disabled: Demo.props.bool(false),
       onChange: Demo.props.callback.logLatest(e => e.target.value)
+    }
+  },
+  {
+    children: (props, update) => (
+      <div style={{
+        background: props.background,
+        padding: props.padding,
+        display: 'inline-block'
+      }}>
+        <input
+          value={props.value}
+          disabled={props.disabled}
+          type="text"
+          onChange={event => update({value: event.target.value})}
+        />
+      </div>
+    ),
+    props: {
+      value: Demo.props.string('Adveanced example'),
+      disabled: Demo.props.bool(false),
+      background: Demo.props.string('green'),
+      padding: Demo.props.string('5px')
     }
   }
 ]
