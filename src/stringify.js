@@ -53,7 +53,7 @@ function wrapJsxChildren(x) {
     return x
   }
   if (x[0] === '"') {
-    return x.slice(1, x.length - 2)
+    return x.slice(1, x.length - 1)
   }
   return `{${x}}`
 }
