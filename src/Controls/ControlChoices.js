@@ -1,6 +1,6 @@
 import React from 'react'
 import Group from './Group'
-import Select from './Select'
+import InputSelect from './InputSelect'
 
 export default React.createClass({
 
@@ -10,21 +10,19 @@ export default React.createClass({
     name: React.PropTypes.string.isRequired,
     value: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    choices: React.PropTypes.arrayOf(
-      React.PropTypes.string.isRequired
-    ).isRequired
+    options: React.PropTypes.oneOfType(React.PropTypes.object).isRequired
   },
-
 
   render() {
     return (
       <Group name={this.props.name}>
-        <Select
+        <InputSelect
           value={this.props.value}
-          values={this.props.choices}
+          options={this.props.options}
           onChange={this.props.onChange}
         />
       </Group>
     )
   }
+
 })

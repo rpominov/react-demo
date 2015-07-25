@@ -6,22 +6,29 @@ const targets = [
   {
     target: require('./targets/Button'),
     props: {
-      children: Demo.props.choices('My button', [
-        'My button',
-        'Your button'
-      ]),
+      children: Demo.props.string('My button'),
       disabled: Demo.props.bool(false),
       onClick: Demo.props.callback.log()
     }
   },
   {
-    target: 'input', // Built-in component
-    padding: false,
+    target: 'input', // Use strings if for built-in components
+    padding: false, // You can disable padding
     props: {
       type: Demo.props.constant('text'),
       value: Demo.props.string('Built-in text input'),
       disabled: Demo.props.bool(false),
-      onChange: Demo.props.callback.logLatest(e => e.target.value)
+      onChange: Demo.props.callback.logLatest(e => e.target.value) // You can provide a mapper function for log
+    }
+  },
+  {
+    target: 'div',
+    props: {
+      style: Demo.props.choices([{color: 'green'}, {color: 'red'}]), // You can provide choices options in array...
+      children: Demo.props.choices({ // ... or as an object
+        foo: <h1>Foo</h1>,
+        bar: <h2>Bar</h2>
+      }, 'bar') // Also you can change the default initialVaue (first item)
     }
   },
   {
@@ -42,7 +49,7 @@ const targets = [
     props: {
       value: Demo.props.string('Adveanced example'),
       disabled: Demo.props.bool(false),
-      background: Demo.props.string('green'),
+      background: Demo.props.choices(['green', 'red']),
       padding: Demo.props.string('5px')
     }
   }

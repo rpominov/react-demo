@@ -2,6 +2,7 @@ import Noop from './Controls/ControlNoop'
 import String from './Controls/ControlString'
 import Bool from './Controls/ControlBool'
 import Choices from './Controls/ControlChoices'
+import stringify from './stringify'
 
 export default {
 
@@ -29,13 +30,22 @@ export default {
     }
   },
 
-  choices(initialValue, choices) {
+  choices(options, _initialValue) {
+
+    const normOptions = Array.isArray(options)
+      ? options.map(x => ({label: stringify(x), value: x}))
+      : Object.keys(options).map(key => ({label: key, value: options[key]}))
+
+    const initialValue = _initialValue === undefined
+      ? normOptions[0].value
+      : normOptions.filter(x => x.label === _initialValue || x.value === _initialValue)[0].value
+
     return {
       type: 'value',
       Control: Choices,
       initialValue,
       controlProps: {
-        choices
+        options: normOptions
       }
     }
   },

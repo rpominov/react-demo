@@ -46,12 +46,12 @@ export default {
         width: '100%',
         boxSizing: 'border-box'
       },
-      checkbox: {}
-    },
-    select: {
-      display: 'block',
-      width: '100%',
-      boxSizing: 'border-box'
+      checkbox: {},
+      select: {
+        display: 'block',
+        width: '100%',
+        boxSizing: 'border-box'
+      }
     },
     log: {
       background: '#fff',
