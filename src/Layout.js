@@ -8,7 +8,7 @@ export default React.createClass({
   propTypes: {
     padding: React.PropTypes.bool.isRequired,
     controls: React.PropTypes.node.isRequired,
-    component: React.PropTypes.node.isRequired
+    element: React.PropTypes.node.isRequired
   },
 
   getCompStyle() {
@@ -25,7 +25,7 @@ export default React.createClass({
           {this.props.controls}
         </div>
         <div style={this.getCompStyle()}>
-          {this.props.component}
+          {this.props.element}
         </div>
       </div>
     )

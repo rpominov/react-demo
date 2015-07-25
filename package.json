@@ -32,6 +32,8 @@
     "react-heatpack": "^1.4.0"
   },
   "dependencies": {
+    "is-regexp": "^1.0.0",
+    "isobject": "^2.0.0",
     "lodash": "^3.10.0"
   }
 }

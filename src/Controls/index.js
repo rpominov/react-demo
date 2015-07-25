@@ -9,12 +9,12 @@ export default React.createClass({
   displayName: 'Demo.Controls',
 
   propTypes: {
-    renderCode: React.PropTypes.bool.isRequired,
     targetName: React.PropTypes.string.isRequired,
     values: React.PropTypes.object.isRequired,
     logs: React.PropTypes.object.isRequired,
     props: React.PropTypes.object.isRequired,
-    onChange: React.PropTypes.func.isRequired
+    onChange: React.PropTypes.func.isRequired,
+    element: React.PropTypes.node.isRequired
   },
 
   renderControl(key) {
@@ -36,9 +36,7 @@ export default React.createClass({
   render() {
     return (
       <Layout>
-        {this.props.renderCode &&
-          <RenderCode name={this.props.targetName} props={this.props.values} logs={Object.keys(this.props.logs)} />
-        }
+        <RenderCode element={this.props.element} />
         {Object.keys(this.props.props).map(this.renderControl)}
         {Object.keys(this.props.logs).map(this.renderLog)}
       </Layout>

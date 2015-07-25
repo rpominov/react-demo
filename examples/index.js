@@ -13,17 +13,21 @@ const targets = [
   },
   {
     children: (props, update) => (
-      <input
-        {...props}
-        type="text"
-        onChange={event => update({
-          value: event.target.value
-        })}
-      />
+      <div style={{background: props.background, padding: props.padding, display: 'inline-block'}}>
+        <input
+          value={props.value}
+          type="text"
+          onChange={event => update({
+            value: event.target.value
+          })}
+        />
+      </div>
     ),
     props: {
       value: Demo.props.string('Built-in text input'),
-      disabled: Demo.props.bool(false)
+      disabled: Demo.props.bool(false),
+      background: Demo.props.string('green'),
+      padding: Demo.props.string('5px')
     }
   },
   {

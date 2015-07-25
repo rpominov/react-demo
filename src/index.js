@@ -68,17 +68,17 @@ export default React.createClass({
   render() {
     const props = {...this.state.values, ...this.getCallbacks()}
 
-    const component = this.props.children
+    const element = this.props.children
        ? this.props.children(props, this.updateValues)
        : <this.props.target {...props} />
 
     return (
       <Layout
         padding={this.props.padding}
-        component={component}
+        element={element}
         controls={
           <Controls
-            renderCode={!!this.props.target}
+            element={element}
             targetName={this.getTargetName()}
             props={this.getPropsValue()}
             values={this.state.values}
