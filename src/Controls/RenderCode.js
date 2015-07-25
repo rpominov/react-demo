@@ -13,7 +13,7 @@ export default React.createClass({
   render() {
     return (
       <div style={styles.controls.renderCode}>
-        {stringify(this.props.element, {deepLim: 3})}
+        {stringify(this.props.element, {depthLim: 3})}
       </div>
     )
   }

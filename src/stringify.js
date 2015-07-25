@@ -112,15 +112,15 @@ const handlers = [handlePrimitive, handleFunction, handleString, handleDate, han
 
 export default function stringify(_x, opts) {
   const seen = []
-  function s(x, {indent = '\n  ', deepLim = 0} = {}) {
+  function s(x, {indent = '\n  ', depthLim = 0} = {}) {
     if (seen.indexOf(x) !== -1) {
       return '__Circular'
     }
     let i = 0
     let result
-    const next = (__x) => s(__x, {indent: indent + '  ', deepLim: deepLim - 1})
+    const next = (__x) => s(__x, {indent: indent + '  ', depthLim: depthLim - 1})
     do {
-      result = handlers[i](x, next, seen, deepLim > 0 ? indent : '')
+      result = handlers[i](x, next, seen, depthLim > 0 ? indent : '')
       i++
     } while (result === null)
     return result
