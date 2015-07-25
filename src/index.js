@@ -55,16 +55,6 @@ export default React.createClass({
     }
   },
 
-  getTargetName() {
-    const {target} = this.props
-
-    if (!target) {
-      return 'Comp'
-    }
-
-    return (typeof target === 'string') ? target : (target.displayName || 'Comp')
-  },
-
   render() {
     const props = {...this.state.values, ...this.getCallbacks()}
 
@@ -79,7 +69,6 @@ export default React.createClass({
         controls={
           <Controls
             element={element}
-            targetName={this.getTargetName()}
             props={this.getPropsValue()}
             values={this.state.values}
             onChange={this.hangelValuesChange}

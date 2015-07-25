@@ -9,7 +9,6 @@ export default React.createClass({
   displayName: 'Demo.Controls',
 
   propTypes: {
-    targetName: React.PropTypes.string.isRequired,
     values: React.PropTypes.object.isRequired,
     logs: React.PropTypes.object.isRequired,
     props: React.PropTypes.object.isRequired,
