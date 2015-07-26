@@ -12,7 +12,7 @@ const targets = [
     }
   },
   {
-    target: 'input', // Use strings if for built-in components
+    target: 'input', // Use strings for built-in components
     padding: false, // You can disable padding
     props: {
       type: Demo.props.constant('text'),
@@ -32,7 +32,7 @@ const targets = [
     }
   },
   {
-    children: (props, update) => (
+    children: (props, update) => ( // You can provide custom function that renders your component
       <div style={{
         background: props.background,
         padding: props.padding,
@@ -42,12 +42,13 @@ const targets = [
           value={props.value}
           disabled={props.disabled}
           type="text"
-          onChange={event => update({value: event.target.value})}
+          onChange={event =>
+            update({value: event.target.value})} // You can udate props from your custom function
         />
       </div>
     ),
     props: {
-      value: Demo.props.string('Adveanced example'),
+      value: Demo.props.string('Advanced example'),
       disabled: Demo.props.bool(false),
       background: Demo.props.choices(['green', 'red']),
       padding: Demo.props.string('5px')

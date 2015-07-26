@@ -1,8 +1,6 @@
 # React-demo [![Build Status](https://travis-ci.org/rpominov/react-demo.svg?branch=master)](https://travis-ci.org/rpominov/react-demo)
 
 A React-component for creating demos of other components.
-See `examples/index.js` for a usage example.
-
 
 ## Example
 
@@ -22,6 +20,8 @@ React.render(<Demo
 ```
 
 ![](http://g.recordit.co/bBtHoepQZy.gif)
+
+See `examples/index.js` for more usage examples.
 
 
 ## Installation
