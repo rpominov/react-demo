@@ -13,7 +13,8 @@ export default React.createClass({
     logs: React.PropTypes.object.isRequired,
     props: React.PropTypes.object.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    element: React.PropTypes.node.isRequired
+    element: React.PropTypes.node.isRequired,
+    onTop: React.PropTypes.bool.isRequired
   },
 
   renderControl(key) {
@@ -36,7 +37,7 @@ export default React.createClass({
 
   render() {
     return (
-      <Layout>
+      <Layout onTop={this.props.onTop}>
         <RenderCode element={this.props.element} />
         {Object.keys(this.props.props).map(this.renderControl)}
         {Object.keys(this.props.logs).map(this.renderLog)}

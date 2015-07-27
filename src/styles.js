@@ -24,16 +24,30 @@ export default {
       marginLeft: sideControlsWidth
     }
   },
+  layout2: {
+    controls: {
+      border: 'solid 1px #ddd'
+    },
+    component: {}
+  },
   controls: {
     layout: {
       background: '#eee',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      itemWrap: {
+        onSide: {
+          marginBottom: '4px'
+        },
+        onTop: {
+          float: 'left',
+          width: sideControlsWidth
+        }
+      }
     },
     group: {
       fontSize: '11px',
       display: 'block',
       padding: '4px',
-      marginBottom: '4px',
       label: {
         display: 'block',
         color: '#666',
@@ -72,7 +86,6 @@ export default {
       color: '#777',
       fontSize: '11px',
       padding: '4px',
-      marginBottom: '5px',
       whiteSpace: 'pre',
       background: '#fff',
       overflow: 'auto'

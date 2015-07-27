@@ -14,6 +14,7 @@ export default React.createClass({
   propTypes: {
     props: React.PropTypes.object,
     padding: React.PropTypes.bool,
+    controlsOnTop: React.PropTypes.bool,
     target: React.PropTypes.oneOfType([React.PropTypes.func, React.PropTypes.string]),
     children: React.PropTypes.func
   },
@@ -23,7 +24,8 @@ export default React.createClass({
   getDefaultProps() {
     return {
       props: {},
-      padding: true
+      padding: true,
+      controlsOnTop: false
     }
   },
 
@@ -65,6 +67,7 @@ export default React.createClass({
     return (
       <Layout
         padding={this.props.padding}
+        controlsOnTop={this.props.controlsOnTop}
         element={element}
         controls={
           <Controls
@@ -72,7 +75,8 @@ export default React.createClass({
             props={this.getPropsValue()}
             values={this.state.values}
             onChange={this.hangelValuesChange}
-            logs={this.state.logs} />
+            logs={this.state.logs}
+            onTop={this.props.controlsOnTop} />
         }
       />
 
