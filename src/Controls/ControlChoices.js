@@ -8,9 +8,9 @@ export default React.createClass({
 
   propTypes: {
     name: React.PropTypes.string.isRequired,
-    value: React.PropTypes.string.isRequired,
+    value: React.PropTypes.any.isRequired,
     onChange: React.PropTypes.func.isRequired,
-    options: React.PropTypes.oneOfType(React.PropTypes.object).isRequired
+    options: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
   },
 
   render() {
