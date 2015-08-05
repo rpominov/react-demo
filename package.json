@@ -7,7 +7,7 @@
     "build": "rm -rf dist && babel src --out-dir dist",
     "examples": "heatpack examples/index.js",
     "prepublish": "npm run build",
-    "test": "eslint src examples"
+    "test": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -25,8 +25,9 @@
   "homepage": "https://github.com/rpominov/react-demo",
   "devDependencies": {
     "babel": "^5.6.23",
-    "babel-eslint": "^3.1.23",
-    "eslint": "^0.24.1",
+    "babel-eslint": "^4.0.5",
+    "eslint": "^1.0.0",
+    "eslint-config-airbnb": "0.0.7",
     "eslint-plugin-react": "^3.0.0",
     "react": "^0.13.3",
     "react-heatpack": "^1.4.0"
