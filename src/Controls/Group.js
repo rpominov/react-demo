@@ -1,5 +1,14 @@
 import React from 'react'
-import styles from '../styles'
+
+const style = {
+  fontSize: '11px',
+  display: 'block',
+  padding: '4px'
+}
+const styleLabel = {
+  display: 'block',
+  color: '#666'
+}
 
 export default React.createClass({
 
@@ -13,8 +22,8 @@ export default React.createClass({
 
   render() {
     return (
-      <label style={styles.controls.group}>
-        <span style={styles.controls.group.label}>
+      <label style={style}>
+        <span style={styleLabel}>
           {this.props.name}
         </span>
         {this.props.children}

@@ -1,5 +1,10 @@
 import React from 'react'
-import styles from '../styles'
+
+const style = {
+  display: 'block',
+  width: '100%',
+  boxSizing: 'border-box'
+}
 
 export default React.createClass({
 
@@ -13,7 +18,7 @@ export default React.createClass({
   render() {
     return (
       <input
-        style={styles.controls.inputs.text}
+        style={style}
         type="text"
         value={this.props.value}
         onChange={this.handleChange} />

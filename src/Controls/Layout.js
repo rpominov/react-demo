@@ -1,7 +1,19 @@
 import React from 'react'
-import styles from '../styles'
 import flattenDeep from 'lodash/array/flattenDeep'
 import ControlNoop from './ControlNoop'
+
+const style = {
+  background: '#eee',
+  overflow: 'hidden',
+  fontFamily: 'Menlo, Monaco, Consolas, "Lucida Console", monospace'
+}
+const styleItemTop = {
+  float: 'left',
+  width: '280px'
+}
+const styleItemSide = {
+  marginBottom: '4px'
+}
 
 export default React.createClass({
 
@@ -13,8 +25,7 @@ export default React.createClass({
   },
 
   renderChildren() {
-    const wrapStyles = styles.controls.layout.itemWrap
-    const childStyles = this.props.onTop ? wrapStyles.onTop : wrapStyles.onSide
+    const childStyles = this.props.onTop ? styleItemTop : styleItemSide
     return flattenDeep(this.props.children)
       .filter(x => x && x.type !== ControlNoop)
       .map((x, i) => <div key={i} style={childStyles}>{x}</div>)
@@ -22,7 +33,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div style={styles.controls.layout}>
+      <div style={style}>
         {this.renderChildren()}
       </div>
     )

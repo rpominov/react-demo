@@ -1,6 +1,19 @@
 import React from 'react'
 import Group from './Group'
-import styles from '../styles'
+
+const style = {
+  background: '#fff',
+  borderTop: 'solid 1px #e5e5e5',
+  borderRight: 'solid 1px #e5e5e5',
+  borderLeft: 'solid 1px #e5e5e5',
+  fontSize: '10px',
+  lineHeight: '1.2',
+  overflow: 'auto'
+}
+const styleItem = {
+  padding: '0.3em',
+  borderBottom: 'solid 1px #e5e5e5'
+}
 
 export default React.createClass({
 
@@ -14,9 +27,9 @@ export default React.createClass({
   render() {
     return (
       <Group name={this.props.name}>
-        <div style={styles.controls.log}>
+        <div style={style}>
           {this.props.items.map((x, i) =>
-            <div key={i} style={styles.controls.log.item}>{x}</div>)}
+            <div key={i} style={styleItem}>{x}</div>)}
         </div>
       </Group>
     )

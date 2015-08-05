@@ -1,6 +1,14 @@
 import React from 'react'
 import stringify from '../stringify'
-import styles from '../styles'
+
+const style = {
+  color: '#777',
+  fontSize: '11px',
+  padding: '4px',
+  whiteSpace: 'pre',
+  background: '#fff',
+  overflow: 'auto'
+}
 
 export default React.createClass({
 
@@ -12,7 +20,7 @@ export default React.createClass({
 
   render() {
     return (
-      <div style={styles.controls.renderCode}>
+      <div style={style}>
         {stringify(this.props.element, {depthLim: 3})}
       </div>
     )

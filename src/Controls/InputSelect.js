@@ -1,6 +1,11 @@
 import React from 'react'
-import styles from '../styles'
 import findIndex from 'lodash/array/findIndex'
+
+const style = {
+  display: 'block',
+  width: '100%',
+  boxSizing: 'border-box'
+}
 
 const optionType = React.PropTypes.shape({
   label: React.PropTypes.string.isRequired,
@@ -24,7 +29,7 @@ export default React.createClass({
   render() {
     return (
       <select
-        style={styles.controls.inputs.select}
+        style={style}
         value={findIndex(this.props.options, x => x.value === this.props.value)}
         onChange={this.handleChange}
       >
