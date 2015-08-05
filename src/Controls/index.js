@@ -14,7 +14,8 @@ export default React.createClass({
     props: React.PropTypes.object.isRequired,
     onChange: React.PropTypes.func.isRequired,
     element: React.PropTypes.node.isRequired,
-    onTop: React.PropTypes.bool.isRequired
+    onTop: React.PropTypes.bool.isRequired,
+    codeIndentDepth: React.PropTypes.number.isRequired
   },
 
   renderControl(key) {
@@ -38,7 +39,7 @@ export default React.createClass({
   render() {
     return (
       <Layout onTop={this.props.onTop}>
-        <RenderCode element={this.props.element} />
+        <RenderCode element={this.props.element} indentDepth={this.props.codeIndentDepth} />
         {Object.keys(this.props.props).map(this.renderControl)}
         {Object.keys(this.props.logs).map(this.renderLog)}
       </Layout>

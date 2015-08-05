@@ -16,7 +16,8 @@ export default React.createClass({
     padding: React.PropTypes.bool,
     controlsOnTop: React.PropTypes.bool,
     target: React.PropTypes.oneOfType([React.PropTypes.func, React.PropTypes.string]),
-    children: React.PropTypes.func
+    children: React.PropTypes.func,
+    codeIndentDepth: React.PropTypes.number
   },
 
   statics: {props: propsDefenitions},
@@ -25,7 +26,8 @@ export default React.createClass({
     return {
       props: {},
       padding: true,
-      controlsOnTop: false
+      controlsOnTop: false,
+      codeIndentDepth: 3
     }
   },
 
@@ -76,7 +78,8 @@ export default React.createClass({
             values={this.state.values}
             onChange={this.hangelValuesChange}
             logs={this.state.logs}
-            onTop={this.props.controlsOnTop} />
+            onTop={this.props.controlsOnTop}
+            codeIndentDepth={this.props.codeIndentDepth} />
         }
       />
 
