@@ -47,16 +47,6 @@ export default React.createClass({
     }
   },
 
-  fromProp(obj) {
-    try {
-      return JSON.stringify(obj, null, 2)
-    } catch(e) {
-      return JSON.stringify({
-        message: e.message
-      }, null, 2)
-    }
-  },
-
   handleChange(event) {
     const nextStrValue = event.target.value
     try {
