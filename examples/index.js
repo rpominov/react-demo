@@ -18,6 +18,7 @@ const targets = [
     props: {
       type: Demo.props.constant('text'),
       value: Demo.props.string('Built-in text input'),
+      style: Demo.props.json({color: 'blue'}),
       disabled: Demo.props.bool(false),
       onChange: Demo.props.callback.logLatest(e => e.target.value) // You can provide a mapper function for log
     }
