@@ -15,14 +15,14 @@ export default React.createClass({
   displayName: 'Demo.Controls.RenderCode',
 
   propTypes: {
-    element: PropTypes.node.isRequired,
+    obj: PropTypes.node.isRequired,
     indentDepth: PropTypes.number.isRequired
   },
 
   render() {
-    const {element, indentDepth} = this.props
+    const {obj, indentDepth} = this.props
     return <div style={style}>
-      {stringify(element, {depthLim: indentDepth})}
+      {stringify(obj, {depthLim: indentDepth})}
     </div>
   }
 

@@ -69,22 +69,25 @@ export default React.createClass({
 
   render() {
     const {values, logs} = this.state
-    const {children, target: Target, padding, controlsOnTop, codeIndentDepth} = this.props
+    const {children, padding, controlsOnTop, codeIndentDepth} = this.props
 
     const targetProps = {...values, ...this.getCallbacks()}
-    const element = children
+    const targetEl = children
       ? children(targetProps, this.updateValues)
-      : <Target {...targetProps} />
+      : <this.props.target {...targetProps} />
 
     const controlsProps = {
-      logs, values, element, codeIndentDepth,
+      logs,
+      values,
+      codeIndentDepth,
+      targetEl,
       onTop: controlsOnTop,
       props: this.getPropsValue(),
       onChange: this.updateValues
     }
-    const controls = <Controls {...controlsProps} />
+    const controlsEl = <Controls {...controlsProps} />
 
-    const layoutProps = {padding, element, controlsOnTop, controls}
+    const layoutProps = {padding, controlsOnTop, targetEl, controlsEl}
     return <Layout {...layoutProps} />
   }
 

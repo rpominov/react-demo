@@ -28,8 +28,8 @@ export default React.createClass({
   propTypes: {
     padding: PropTypes.bool.isRequired,
     controlsOnTop: PropTypes.bool.isRequired,
-    controls: PropTypes.node.isRequired,
-    element: PropTypes.node.isRequired
+    controlsEl: PropTypes.node.isRequired,
+    targetEl: PropTypes.node.isRequired
   },
 
   getCompStyle() {
@@ -45,10 +45,10 @@ export default React.createClass({
   },
 
   render() {
-    const {controls, element} = this.props
+    const {controlsEl, targetEl} = this.props
     return <div style={style}>
-      <div style={this.getControlsStyle()}>{controls}</div>
-      <div style={this.getCompStyle()}>{element}</div>
+      <div style={this.getControlsStyle()}>{controlsEl}</div>
+      <div style={this.getCompStyle()}>{targetEl}</div>
     </div>
   }
 
