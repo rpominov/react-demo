@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import flattenDeep from 'lodash/array/flattenDeep'
 import ControlNoop from './ControlNoop'
 
@@ -20,22 +20,21 @@ export default React.createClass({
   displayName: 'Demo.Controls.Layout',
 
   propTypes: {
-    children: React.PropTypes.node.isRequired,
-    onTop: React.PropTypes.bool.isRequired
+    children: PropTypes.node.isRequired,
+    onTop: PropTypes.bool.isRequired
   },
 
   renderChildren() {
-    const childStyles = this.props.onTop ? styleItemTop : styleItemSide
-    return flattenDeep(this.props.children)
+    const {onTop, children} = this.props
+    const childStyles = onTop ? styleItemTop : styleItemSide
+    return flattenDeep(children)
       .filter(x => x && x.type !== ControlNoop)
       .map((x, i) => <div key={i} style={childStyles}>{x}</div>)
   },
 
   render() {
-    return (
-      <div style={style}>
-        {this.renderChildren()}
-      </div>
-    )
+    return <div style={style}>
+      {this.renderChildren()}
+    </div>
   }
 })

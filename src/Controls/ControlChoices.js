@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Group from './Group'
 import InputSelect from './InputSelect'
 
@@ -7,22 +7,17 @@ export default React.createClass({
   displayName: 'Demo.Controls.ControlChoices',
 
   propTypes: {
-    name: React.PropTypes.string.isRequired,
-    value: React.PropTypes.any.isRequired,
-    onChange: React.PropTypes.func.isRequired,
-    options: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+    name: PropTypes.string.isRequired,
+    value: PropTypes.any.isRequired,
+    onChange: PropTypes.func.isRequired,
+    options: PropTypes.arrayOf(PropTypes.object).isRequired
   },
 
   render() {
-    return (
-      <Group name={this.props.name}>
-        <InputSelect
-          value={this.props.value}
-          options={this.props.options}
-          onChange={this.props.onChange}
-        />
-      </Group>
-    )
+    const {name, value, options, onChange} = this.props
+    return <Group name={name}>
+      <InputSelect value={value} options={options} onChange={onChange} />
+    </Group>
   }
 
 })

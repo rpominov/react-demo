@@ -6,6 +6,7 @@
     "no-multiple-empty-lines": 0,
     "padded-blocks": 0,
     "comma-dangle": [2, "never"],
-    "no-reserved-keys": 0
+    "no-reserved-keys": 0,
+    "react/wrap-multilines": 0
   }
 }

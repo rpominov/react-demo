@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Group from './Group'
 
 const style = {
@@ -20,18 +20,16 @@ export default React.createClass({
   displayName: 'Demo.Controls.Log',
 
   propTypes: {
-    name: React.PropTypes.string.isRequired,
-    items: React.PropTypes.arrayOf(React.PropTypes.string).isRequired
+    name: PropTypes.string.isRequired,
+    items: PropTypes.arrayOf(PropTypes.string).isRequired
   },
 
   render() {
-    return (
-      <Group name={this.props.name}>
-        <div style={style}>
-          {this.props.items.map((x, i) =>
-            <div key={i} style={styleItem}>{x}</div>)}
-        </div>
-      </Group>
-    )
+    const {name, items} = this.props
+    return <Group name={name}>
+      <div style={style}>
+        {items.map((x, i) => <div key={i} style={styleItem}>{x}</div>)}
+      </div>
+    </Group>
   }
 })

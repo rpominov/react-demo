@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import Layout from './Layout'
 import Log from './Log'
 import RenderCode from './RenderCode'
@@ -9,50 +9,47 @@ export default React.createClass({
   displayName: 'Demo.Controls',
 
   propTypes: {
-    values: React.PropTypes.object.isRequired,
-    logs: React.PropTypes.object.isRequired,
-    props: React.PropTypes.object.isRequired,
-    onChange: React.PropTypes.func.isRequired,
-    element: React.PropTypes.node.isRequired,
-    onTop: React.PropTypes.bool.isRequired,
-    codeIndentDepth: React.PropTypes.number.isRequired
+    values: PropTypes.object.isRequired,
+    logs: PropTypes.object.isRequired,
+    props: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
+    element: PropTypes.node.isRequired,
+    onTop: PropTypes.bool.isRequired,
+    codeIndentDepth: PropTypes.number.isRequired
   },
 
-  renderControl(key) {
-    const Control = this.props.props[key].Control
-    const props = this.props.props[key].controlProps || {}
-    const value = this.props.values[key]
-    return (
-      <Control
-        {...props}
-        key={key}
-        name={key}
-        value={value}
-        onChange={this.handleChange(key)} />
-    )
+  handleChange(key) {
+    return (nextValue) => {
+      const {onChange, values} = this.props
+      onChange({...values, [key]: nextValue})
+    }
   },
 
   renderLog(key) {
     return <Log key={key} name={key} items={this.props.logs[key]} />
   },
 
-  render() {
-    return (
-      <Layout onTop={this.props.onTop}>
-        <RenderCode element={this.props.element} indentDepth={this.props.codeIndentDepth} />
-        {Object.keys(this.props.props).map(this.renderControl)}
-        {Object.keys(this.props.logs).map(this.renderLog)}
-      </Layout>
-    )
+  renderControl(key) {
+    const {props, values} = this.props
+    const Control = props[key].Control
+    const controlProps = props[key].controlProps || {}
+    const value = values[key]
+    return <Control
+      {...controlProps}
+      key={key}
+      name={key}
+      value={value}
+      onChange={this.handleChange(key)}
+    />
   },
 
-  handleChange(key) {
-    return (newValue) => {
-      this.props.onChange({
-        ...this.props.values,
-        [key]: newValue
-      })
-    }
+  render() {
+    const {onTop, element, codeIndentDepth, props, logs} = this.props
+    return <Layout onTop={onTop}>
+      <RenderCode element={element} indentDepth={codeIndentDepth} />
+      {Object.keys(props).map(this.renderControl)}
+      {Object.keys(logs).map(this.renderLog)}
+    </Layout>
   }
 
 })

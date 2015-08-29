@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import findIndex from 'lodash/array/findIndex'
 
 const style = {
@@ -7,9 +7,9 @@ const style = {
   boxSizing: 'border-box'
 }
 
-const optionType = React.PropTypes.shape({
-  label: React.PropTypes.string.isRequired,
-  value: React.PropTypes.any
+const optionType = PropTypes.shape({
+  label: PropTypes.string.isRequired,
+  value: PropTypes.any
 })
 
 export default React.createClass({
@@ -17,9 +17,13 @@ export default React.createClass({
   displayName: 'Demo.Controls.InputSelect',
 
   propTypes: {
-    value: React.PropTypes.any,
-    options: React.PropTypes.arrayOf(optionType.isRequired).isRequired,
-    onChange: React.PropTypes.func.isRequired
+    value: PropTypes.any,
+    options: PropTypes.arrayOf(optionType.isRequired).isRequired,
+    onChange: PropTypes.func.isRequired
+  },
+
+  handleChange(e) {
+    this.props.onChange(this.props.options[e.target.value].value)
   },
 
   renderOption(choice, index) {
@@ -27,19 +31,14 @@ export default React.createClass({
   },
 
   render() {
-    return (
-      <select
-        style={style}
-        value={findIndex(this.props.options, x => x.value === this.props.value)}
-        onChange={this.handleChange}
-      >
-        {this.props.options.map(this.renderOption)}
-      </select>
-    )
-  },
-
-  handleChange(e) {
-    this.props.onChange(this.props.options[e.target.value].value)
+    const {options, value} = this.props
+    return <select
+      style={style}
+      value={findIndex(options, x => x.value === value)}
+      onChange={this.handleChange}
+    >
+      {options.map(this.renderOption)}
+    </select>
   }
 
 })

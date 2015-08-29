@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const style = {
   display: 'block',
@@ -11,22 +11,21 @@ export default React.createClass({
   displayName: 'Demo.Controls.InputText',
 
   propTypes: {
-    value: React.PropTypes.string.isRequired,
-    onChange: React.PropTypes.func.isRequired
-  },
-
-  render() {
-    return (
-      <input
-        style={style}
-        type="text"
-        value={this.props.value}
-        onChange={this.handleChange} />
-    )
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired
   },
 
   handleChange(e) {
     this.props.onChange(e.target.value)
+  },
+
+  render() {
+    return <input
+      type="text"
+      style={style}
+      value={this.props.value}
+      onChange={this.handleChange}
+    />
   }
 
 })

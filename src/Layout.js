@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 
 const style = {
   backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Zz48cGF0aCBmaWxsPSIjZjVmNWY1IiBkPSJNMCAwaDEwMHYxMDBIMHptMTAwIDEwMGgxMDB2MTAwSDEwMHoiLz48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTAwIDBoMTAwdjEwMEgxMDB6TTAgMTAwaDEwMHYxMDBIMHoiLz48L2c+PC9zdmc+)',
@@ -26,16 +26,17 @@ export default React.createClass({
   displayName: 'Demo.Layout',
 
   propTypes: {
-    padding: React.PropTypes.bool.isRequired,
-    controlsOnTop: React.PropTypes.bool.isRequired,
-    controls: React.PropTypes.node.isRequired,
-    element: React.PropTypes.node.isRequired
+    padding: PropTypes.bool.isRequired,
+    controlsOnTop: PropTypes.bool.isRequired,
+    controls: PropTypes.node.isRequired,
+    element: PropTypes.node.isRequired
   },
 
   getCompStyle() {
+    const {controlsOnTop, padding} = this.props
     return {
-      ...(this.props.controlsOnTop ? styleComponentTop : styleComponentSide),
-      padding: this.props.padding ? '1em' : '0'
+      ...(controlsOnTop ? styleComponentTop : styleComponentSide),
+      padding: padding ? '1em' : '0'
     }
   },
 
@@ -44,16 +45,11 @@ export default React.createClass({
   },
 
   render() {
-    return (
-      <div style={style}>
-        <div style={this.getControlsStyle()}>
-          {this.props.controls}
-        </div>
-        <div style={this.getCompStyle()}>
-          {this.props.element}
-        </div>
-      </div>
-    )
+    const {controls, element} = this.props
+    return <div style={style}>
+      <div style={this.getControlsStyle()}>{controls}</div>
+      <div style={this.getCompStyle()}>{element}</div>
+    </div>
   }
 
 })

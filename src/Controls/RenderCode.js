@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import stringify from '../stringify'
 
 const style = {
@@ -15,16 +15,15 @@ export default React.createClass({
   displayName: 'Demo.Controls.RenderCode',
 
   propTypes: {
-    element: React.PropTypes.node.isRequired,
-    indentDepth: React.PropTypes.number.isRequired
+    element: PropTypes.node.isRequired,
+    indentDepth: PropTypes.number.isRequired
   },
 
   render() {
-    return (
-      <div style={style}>
-        {stringify(this.props.element, {depthLim: this.props.indentDepth})}
-      </div>
-    )
+    const {element, indentDepth} = this.props
+    return <div style={style}>
+      {stringify(element, {depthLim: indentDepth})}
+    </div>
   }
 
 })

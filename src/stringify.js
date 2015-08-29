@@ -108,7 +108,16 @@ function handleUnknown() {
 }
 
 
-const handlers = [handlePrimitive, handleFunction, handleString, handleDate, handleArray, handleJsx, handleObject, handleUnknown]
+const handlers = [
+  handlePrimitive,
+  handleFunction,
+  handleString,
+  handleDate,
+  handleArray,
+  handleJsx,
+  handleObject,
+  handleUnknown
+]
 
 export default function stringify(_x, opts) {
   const seen = []
