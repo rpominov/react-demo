@@ -14,6 +14,7 @@ const targets = [
   {
     target: 'input', // Use strings for built-in components
     fullWidth: true, // You can demo compoenets that require full page width (responsive stuff)
+    background: 'dark', // Avalible backgrounds: light (default), dark, none
     props: {
       type: Demo.props.constant('text'),
       value: Demo.props.string('Built-in text input'),

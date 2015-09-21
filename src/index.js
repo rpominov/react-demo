@@ -16,7 +16,8 @@ export default React.createClass({
     fullWidth: PropTypes.bool,
     target: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     children: PropTypes.func,
-    codeIndentDepth: PropTypes.number
+    codeIndentDepth: PropTypes.number,
+    background: Layout.propTypes.background
   },
 
   statics: {props: propsDefenitions},
@@ -25,7 +26,8 @@ export default React.createClass({
     return {
       props: {},
       fullWidth: false,
-      codeIndentDepth: 3
+      codeIndentDepth: 3,
+      background: 'light'
     }
   },
 
@@ -67,7 +69,7 @@ export default React.createClass({
 
   render() {
     const {values, logs} = this.state
-    const {children, fullWidth, codeIndentDepth} = this.props
+    const {children, fullWidth, codeIndentDepth, background} = this.props
 
     const targetProps = {...values, ...this.getCallbacks()}
     const targetEl = children
@@ -85,7 +87,7 @@ export default React.createClass({
     }
     const controlsEl = <Controls {...controlsProps} />
 
-    const layoutProps = {fullWidth, targetEl, controlsEl}
+    const layoutProps = {fullWidth, targetEl, controlsEl, background}
     return <Layout {...layoutProps} />
   }
 

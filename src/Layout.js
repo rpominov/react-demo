@@ -1,7 +1,12 @@
 import React, {PropTypes} from 'react'
 
+const backgrounds = {
+  dark: 'url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#777%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#555%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E)',
+  light: 'url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#eee%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#fff%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E)',
+  none: 'none'
+}
+
 const style = {
-  backgroundImage: 'url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAwIDIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Zz48cGF0aCBmaWxsPSIjZjVmNWY1IiBkPSJNMCAwaDEwMHYxMDBIMHptMTAwIDEwMGgxMDB2MTAwSDEwMHoiLz48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTAwIDBoMTAwdjEwMEgxMDB6TTAgMTAwaDEwMHYxMDBIMHoiLz48L2c+PC9zdmc+)',
   backgroundSize: '20px 20px',
   overflow: 'hidden',
   marginBottom: '10px',
@@ -30,7 +35,8 @@ export default React.createClass({
   propTypes: {
     fullWidth: PropTypes.bool.isRequired,
     controlsEl: PropTypes.node.isRequired,
-    targetEl: PropTypes.node.isRequired
+    targetEl: PropTypes.node.isRequired,
+    background: PropTypes.oneOf(Object.keys(backgrounds)).isRequired
   },
 
   getTagretStyle() {
@@ -42,10 +48,11 @@ export default React.createClass({
   },
 
   getWrapStyle() {
-    const {fullWidth} = this.props
+    const {fullWidth, background} = this.props
     return {
       ...style,
-      borderWidth: fullWidth ? '1px 0' : '1px'
+      borderWidth: fullWidth ? '1px 0' : '1px',
+      backgroundImage: backgrounds[background]
     }
   },
 
