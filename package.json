@@ -6,8 +6,9 @@
   "scripts": {
     "build": "rm -rf dist && babel src --out-dir dist",
     "examples": "heatpack examples/index.js",
-    "prepublish": "npm run build",
-    "test": "eslint ."
+    "test": "eslint .",
+    "version": "npm run build && git add .",
+    "postversion": "git push && git push origin --tags && npm publish"
   },
   "repository": {
     "type": "git",
