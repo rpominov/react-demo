@@ -7,7 +7,7 @@
     "build": "rm -rf dist && babel src --out-dir dist",
     "examples": "heatpack examples/index.js",
     "test": "eslint .",
-    "version": "npm run build && git add .",
+    "version": "npm run build",
     "postversion": "git push && git push origin --tags && npm publish"
   },
   "repository": {
