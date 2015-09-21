@@ -13,8 +13,7 @@ export default React.createClass({
 
   propTypes: {
     props: PropTypes.object,
-    padding: PropTypes.bool,
-    controlsOnTop: PropTypes.bool,
+    fullWidth: PropTypes.bool,
     target: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     children: PropTypes.func,
     codeIndentDepth: PropTypes.number
@@ -25,8 +24,7 @@ export default React.createClass({
   getDefaultProps() {
     return {
       props: {},
-      padding: true,
-      controlsOnTop: false,
+      fullWidth: false,
       codeIndentDepth: 3
     }
   },
@@ -69,7 +67,7 @@ export default React.createClass({
 
   render() {
     const {values, logs} = this.state
-    const {children, padding, controlsOnTop, codeIndentDepth} = this.props
+    const {children, fullWidth, codeIndentDepth} = this.props
 
     const targetProps = {...values, ...this.getCallbacks()}
     const targetEl = children
@@ -81,13 +79,13 @@ export default React.createClass({
       values,
       codeIndentDepth,
       targetEl,
-      onTop: controlsOnTop,
+      onTop: fullWidth,
       props: this.getPropsValue(),
       onChange: this.updateValues
     }
     const controlsEl = <Controls {...controlsProps} />
 
-    const layoutProps = {padding, controlsOnTop, targetEl, controlsEl}
+    const layoutProps = {fullWidth, targetEl, controlsEl}
     return <Layout {...layoutProps} />
   }
 

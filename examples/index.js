@@ -13,8 +13,7 @@ const targets = [
   },
   {
     target: 'input', // Use strings for built-in components
-    padding: false, // You can disable padding ...
-    controlsOnTop: true, // ... and/or put controls on top
+    fullWidth: true, // You can demo compoenets that require full page width (responsive stuff)
     props: {
       type: Demo.props.constant('text'),
       value: Demo.props.string('Built-in text input'),
