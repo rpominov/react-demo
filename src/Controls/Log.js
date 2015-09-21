@@ -30,7 +30,7 @@ export default React.createClass({
       <div style={style} className="react-demo__log">
         {items.map((x, i) =>
           <div key={i} style={styleItem} className="react-demo__log-item">
-            {x}
+            {x || '<no arguments>'}
           </div>
         )}
       </div>
