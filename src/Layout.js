@@ -46,9 +46,13 @@ export default React.createClass({
 
   render() {
     const {controlsEl, targetEl} = this.props
-    return <div style={style}>
-      <div style={this.getControlsStyle()}>{controlsEl}</div>
-      <div style={this.getCompStyle()}>{targetEl}</div>
+    return <div style={style} className="react-demo">
+      <div style={this.getControlsStyle()} className="react-demo__controls-wrap">
+        {controlsEl}
+      </div>
+      <div style={this.getCompStyle()} className="react-demo__target-wrap">
+        {targetEl}
+      </div>
     </div>
   }
 

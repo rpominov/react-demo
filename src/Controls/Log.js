@@ -27,8 +27,12 @@ export default React.createClass({
   render() {
     const {name, items} = this.props
     return <Group name={name}>
-      <div style={style}>
-        {items.map((x, i) => <div key={i} style={styleItem}>{x}</div>)}
+      <div style={style} className="react-demo__log">
+        {items.map((x, i) =>
+          <div key={i} style={styleItem} className="react-demo__log-item">
+            {x}
+          </div>
+        )}
       </div>
     </Group>
   }

@@ -21,8 +21,10 @@ export default React.createClass({
 
   render() {
     const {name, children} = this.props
-    return <label style={style}>
-      <span style={styleLabel}>{name}</span>
+    return <label style={style} className="react-demo__control-group">
+      <span style={styleLabel} className="react-demo__control-group-label">
+        {name}
+      </span>
       {children}
     </label>
   }

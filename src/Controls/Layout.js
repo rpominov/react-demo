@@ -29,11 +29,15 @@ export default React.createClass({
     const childStyles = onTop ? styleItemTop : styleItemSide
     return flattenDeep(children)
       .filter(x => x && x.type !== ControlNoop)
-      .map((x, i) => <div key={i} style={childStyles}>{x}</div>)
+      .map((x, i) =>
+        <div key={i} style={childStyles} className="react-demo__control-wrap">
+          {x}
+        </div>
+      )
   },
 
   render() {
-    return <div style={style}>
+    return <div style={style} className="react-demo__controls">
       {this.renderChildren()}
     </div>
   }
