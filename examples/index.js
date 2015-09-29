@@ -55,6 +55,12 @@ const targets = [
       background: Demo.props.choices(['green', 'red']),
       padding: Demo.props.string('5px')
     }
+  },
+  {
+    target: 'pre',
+    props: {
+      children: Demo.props.text('multiline\ntext')
+    }
   }
 ]
 
