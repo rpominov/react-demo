@@ -1,9 +1,14 @@
 import React, {PropTypes} from 'react'
 
-const backgrounds = {
-  dark: 'url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#777%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#555%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E)',
-  light: 'url(data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#eee%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#fff%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E)',
+const bgImages = {
+  dark: 'url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#777%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#555%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E")',
+  light: 'url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#eee%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#fff%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E")',
   none: 'none'
+}
+const bgColors = {
+  dark: 'black',
+  light: 'white',
+  none: 'transparent'
 }
 
 const style = {
@@ -36,7 +41,7 @@ export default React.createClass({
     fullWidth: PropTypes.bool.isRequired,
     controlsEl: PropTypes.node.isRequired,
     targetEl: PropTypes.node.isRequired,
-    background: PropTypes.oneOf(Object.keys(backgrounds)).isRequired
+    background: PropTypes.oneOf(Object.keys(bgImages)).isRequired
   },
 
   getTagretStyle() {
@@ -52,7 +57,8 @@ export default React.createClass({
     return {
       ...style,
       borderWidth: fullWidth ? '1px 0' : '1px',
-      backgroundImage: backgrounds[background]
+      backgroundImage: bgImages[background],
+      backgroundColor: bgColors[background]
     }
   },
 
