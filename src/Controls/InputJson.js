@@ -15,7 +15,7 @@ function styles(invalid) {
 function stringifyFromUntrustedProp(obj) {
   try {
     return JSON.stringify(obj, null, 2)
-  } catch(e) {
+  } catch (e) {
     return JSON.stringify({
       message: e.message
     }, null, 2)
