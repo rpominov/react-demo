@@ -26,12 +26,12 @@
   "homepage": "https://github.com/rpominov/react-demo",
   "devDependencies": {
     "babel": "5.8.23",
-    "babel-eslint": "4.1.0",
-    "eslint": "1.3.0",
-    "eslint-config-airbnb": "0.0.8",
-    "eslint-plugin-react": "3.3.0",
+    "babel-eslint": "4.1.3",
+    "eslint": "1.5.1",
+    "eslint-config-airbnb": "0.1.0",
+    "eslint-plugin-react": "3.5.1",
     "react": "0.13.3",
-    "react-heatpack": "1.4.1"
+    "react-heatpack": "1.5.0"
   },
   "dependencies": {
     "is-regexp": "1.0.0",
