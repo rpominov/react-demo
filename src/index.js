@@ -53,7 +53,7 @@ export default React.createClass({
         const result = map ? stringify(map(...args)) : args.map(stringify).join(', ')
         const {logs} = this.state
         const nextLog = callbackType === 'logLatest' ? [result] : [result, ...logs[key]]
-        this.setState({logs: {...logs, [key]: nextLog}})
+        this.setState(state => ({logs: {...state.logs, [key]: nextLog}}))
       }
     })
   },
