@@ -6,20 +6,20 @@ A React-component for creating demos of other components.
 
 ```js
 import React from 'react'
-import Demo from 'react-demo'
-import Button from './my-components/Button'
+import Demo, {props as P} from 'react-demo'
+import MyButton from './my-components/MyButton'
 
 React.render(<Demo
-  target={Button}
+  target={MyButton}
   props={{
-    children: Demo.props.string('My button'),
-    disabled: Demo.props.bool(false),
-    onClick: Demo.props.callback.log()
+    label: P.string('Click me'),
+    disabled: P.bool(false),
+    onClick: P.callback.log(),
   }}
 />, el)
 ```
 
-![](http://g.recordit.co/bBtHoepQZy.gif)
+![](http://g.recordit.co/IgZ2E9IUTm.gif)
 
 See `examples/index.js` for more usage examples.
 
