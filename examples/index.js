@@ -100,7 +100,7 @@ export default React.createClass({
         In the advanced mode you also get access to the <tt>update</tt> function,
         using which you are able to update the demo props’ values.
         The <tt>update</tt> function is passed as a second argument
-        to the custom render function. You're supossed to call <tt>update()</tt> similary
+        to the custom render function. You’re supossed to call <tt>update()</tt> similary
         to <tt>setState()</tt> — passing an object with props that you want to change.
       </Description>
       <Demo props={{
