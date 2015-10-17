@@ -1,15 +1,15 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 import findIndex from 'lodash/array/findIndex'
 
 const style = {
   display: 'block',
   width: '100%',
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
 }
 
-const optionType = PropTypes.shape({
-  label: PropTypes.string.isRequired,
-  value: PropTypes.any
+const optionType = T.shape({
+  label: T.string.isRequired,
+  value: T.any,
 })
 
 export default React.createClass({
@@ -17,9 +17,9 @@ export default React.createClass({
   displayName: 'Demo.Controls.InputSelect',
 
   propTypes: {
-    value: PropTypes.any,
-    options: PropTypes.arrayOf(optionType.isRequired).isRequired,
-    onChange: PropTypes.func.isRequired
+    value: T.any,
+    options: T.arrayOf(optionType.isRequired).isRequired,
+    onChange: T.func.isRequired,
   },
 
   handleChange(e) {
@@ -39,6 +39,6 @@ export default React.createClass({
     >
       {options.map(this.renderOption)}
     </select>
-  }
+  },
 
 })

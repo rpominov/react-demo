@@ -12,7 +12,7 @@ export default {
     return {
       type: 'value',
       Control: Noop,
-      initialValue
+      initialValue,
     }
   },
 
@@ -20,7 +20,7 @@ export default {
     return {
       type: 'value',
       Control: String,
-      initialValue
+      initialValue,
     }
   },
 
@@ -28,7 +28,7 @@ export default {
     return {
       type: 'value',
       Control: Text,
-      initialValue
+      initialValue,
     }
   },
 
@@ -36,7 +36,7 @@ export default {
     return {
       type: 'value',
       Control: Json,
-      initialValue
+      initialValue,
     }
   },
 
@@ -44,7 +44,7 @@ export default {
     return {
       type: 'value',
       Control: Bool,
-      initialValue
+      initialValue,
     }
   },
 
@@ -63,8 +63,8 @@ export default {
       Control: Choices,
       initialValue,
       controlProps: {
-        options: normOptions
-      }
+        options: normOptions,
+      },
     }
   },
 
@@ -74,7 +74,7 @@ export default {
       return {
         type: 'callback',
         callbackType: 'log',
-        map
+        map,
       }
     },
 
@@ -82,10 +82,10 @@ export default {
       return {
         type: 'callback',
         callbackType: 'logLatest',
-        map
+        map,
       }
-    }
+    },
 
-  }
+  },
 
 }

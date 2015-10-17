@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 import mapValues from 'lodash/object/mapValues'
 import pick from 'lodash/object/pick'
 import propsDefenitions from './props'
@@ -12,12 +12,12 @@ export default React.createClass({
   displayName: 'Demo',
 
   propTypes: {
-    props: PropTypes.object,
-    fullWidth: PropTypes.bool,
-    target: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-    children: PropTypes.func,
-    codeIndentDepth: PropTypes.number,
-    background: Layout.propTypes.background
+    props: T.object,
+    fullWidth: T.bool,
+    target: T.oneOfType([T.func, T.string]),
+    children: T.func,
+    codeIndentDepth: T.number,
+    background: Layout.propTypes.background,
   },
 
   statics: {props: propsDefenitions},
@@ -27,14 +27,14 @@ export default React.createClass({
       props: {},
       fullWidth: false,
       codeIndentDepth: 3,
-      background: 'light'
+      background: 'light',
     }
   },
 
   getInitialState() {
     return {
       values: mapValues(this.getPropsValue(), x => x.initialValue),
-      logs: mapValues(this.getPropsCallback(), () => [])
+      logs: mapValues(this.getPropsCallback(), () => []),
     }
   },
 
@@ -62,8 +62,8 @@ export default React.createClass({
     this.setState({
       values: {
         ...this.state.values,
-        ...changes
-      }
+        ...changes,
+      },
     })
   },
 
@@ -83,12 +83,12 @@ export default React.createClass({
       targetEl,
       onTop: fullWidth,
       props: this.getPropsValue(),
-      onChange: this.updateValues
+      onChange: this.updateValues,
     }
     const controlsEl = <Controls {...controlsProps} />
 
     const layoutProps = {fullWidth, targetEl, controlsEl, background}
     return <Layout {...layoutProps} />
-  }
+  },
 
 })

@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 import Layout from './Layout'
 import Log from './Log'
 import RenderCode from './RenderCode'
@@ -9,13 +9,13 @@ export default React.createClass({
   displayName: 'Demo.Controls',
 
   propTypes: {
-    values: PropTypes.object.isRequired,
-    logs: PropTypes.object.isRequired,
-    props: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-    targetEl: PropTypes.node.isRequired,
-    onTop: PropTypes.bool.isRequired,
-    codeIndentDepth: PropTypes.number.isRequired
+    values: T.object.isRequired,
+    logs: T.object.isRequired,
+    props: T.object.isRequired,
+    onChange: T.func.isRequired,
+    targetEl: T.node.isRequired,
+    onTop: T.bool.isRequired,
+    codeIndentDepth: T.number.isRequired,
   },
 
   handleChange(key) {
@@ -50,6 +50,6 @@ export default React.createClass({
       {Object.keys(props).map(this.renderControl)}
       {Object.keys(logs).map(this.renderLog)}
     </Layout>
-  }
+  },
 
 })

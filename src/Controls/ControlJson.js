@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 import Group from './Group'
 import InputJson from './InputJson'
 
@@ -7,9 +7,9 @@ export default React.createClass({
   displayName: 'Demo.Controls.ControlJson',
 
   propTypes: {
-    name: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    name: T.string.isRequired,
+    value: T.string.isRequired,
+    onChange: T.func.isRequired,
   },
 
   render() {
@@ -17,5 +17,5 @@ export default React.createClass({
     return <Group name={name}>
       <InputJson value={value} onChange={onChange} />
     </Group>
-  }
+  },
 })

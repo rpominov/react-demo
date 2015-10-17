@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 import Group from './Group'
 
 const style = {
@@ -8,11 +8,11 @@ const style = {
   borderLeft: 'solid 1px #e5e5e5',
   fontSize: '10px',
   lineHeight: '1.2',
-  overflow: 'auto'
+  overflow: 'auto',
 }
 const styleItem = {
   padding: '0.3em',
-  borderBottom: 'solid 1px #e5e5e5'
+  borderBottom: 'solid 1px #e5e5e5',
 }
 
 export default React.createClass({
@@ -20,8 +20,8 @@ export default React.createClass({
   displayName: 'Demo.Controls.Log',
 
   propTypes: {
-    name: PropTypes.string.isRequired,
-    items: PropTypes.arrayOf(PropTypes.string).isRequired
+    name: T.string.isRequired,
+    items: T.arrayOf(T.string).isRequired,
   },
 
   render() {
@@ -35,5 +35,5 @@ export default React.createClass({
         )}
       </div>
     </Group>
-  }
+  },
 })

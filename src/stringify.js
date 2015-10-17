@@ -116,7 +116,7 @@ const handlers = [
   handleArray,
   handleJsx,
   handleObject,
-  handleUnknown
+  handleUnknown,
 ]
 
 export default function stringify(_x, opts) {

@@ -1,11 +1,11 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 
 const style = {
   display: 'block',
   width: '100%',
   maxWidth: '100%',
   boxSizing: 'border-box',
-  borderColor: '#cccccc'
+  borderColor: '#cccccc',
 }
 
 export default React.createClass({
@@ -13,8 +13,8 @@ export default React.createClass({
   displayName: 'Demo.Controls.InputMultilineText',
 
   propTypes: {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    value: T.string.isRequired,
+    onChange: T.func.isRequired,
   },
 
   handleChange(e) {
@@ -28,6 +28,6 @@ export default React.createClass({
       value={this.props.value}
       onChange={this.handleChange}
     />
-  }
+  },
 
 })

@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 
 export default React.createClass({
 
   displayName: 'Demo.Controls.InputCheckbox',
 
   propTypes: {
-    value: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired
+    value: T.bool.isRequired,
+    onChange: T.func.isRequired,
   },
 
   handleChange() {
@@ -19,6 +19,6 @@ export default React.createClass({
       checked={this.props.value}
       onChange={this.handleChange}
     />
-  }
+  },
 
 })

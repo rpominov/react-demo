@@ -1,9 +1,9 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 
 const style = {
   display: 'block',
   width: '100%',
-  boxSizing: 'border-box'
+  boxSizing: 'border-box',
 }
 
 export default React.createClass({
@@ -11,8 +11,8 @@ export default React.createClass({
   displayName: 'Demo.Controls.InputText',
 
   propTypes: {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    value: T.string.isRequired,
+    onChange: T.func.isRequired,
   },
 
   handleChange(e) {
@@ -26,6 +26,6 @@ export default React.createClass({
       value={this.props.value}
       onChange={this.handleChange}
     />
-  }
+  },
 
 })

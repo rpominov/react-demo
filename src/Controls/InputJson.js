@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 
 function styles(invalid) {
   return {
@@ -8,7 +8,7 @@ function styles(invalid) {
     boxSizing: 'border-box',
     borderColor: '#cccccc',
     backgroundColor: invalid ? 'pink' : 'white',
-    fontFamily: 'Menlo, Monaco, Consolas, "Lucida Console", monospace'
+    fontFamily: 'Menlo, Monaco, Consolas, "Lucida Console", monospace',
   }
 }
 
@@ -17,7 +17,7 @@ function stringifyFromUntrustedProp(obj) {
     return JSON.stringify(obj, null, 2)
   } catch (e) {
     return JSON.stringify({
-      message: e.message
+      message: e.message,
     }, null, 2)
   }
 }
@@ -27,14 +27,14 @@ export default React.createClass({
   displayName: 'Demo.Controls.InputJson',
 
   propTypes: {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    value: T.string.isRequired,
+    onChange: T.func.isRequired,
   },
 
   getInitialState() {
     return {
       strValue: stringifyFromUntrustedProp(this.props.value),
-      invalid: false
+      invalid: false,
     }
   },
 
@@ -42,7 +42,7 @@ export default React.createClass({
     if (nextProps.value !== this.props.value) {
       this.setState({
         strValue: stringifyFromUntrustedProp(nextProps.value),
-        invalid: false
+        invalid: false,
       })
     }
   },
@@ -64,6 +64,6 @@ export default React.createClass({
       value={strValue}
       onChange={this.handleChange}
     />
-  }
+  },
 
 })

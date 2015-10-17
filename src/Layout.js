@@ -1,14 +1,14 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 
 const bgImages = {
   dark: 'url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#777%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#555%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E")',
   light: 'url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#eee%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#fff%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E")',
-  none: 'none'
+  none: 'none',
 }
 const bgColors = {
   dark: 'black',
   light: 'white',
-  none: 'transparent'
+  none: 'transparent',
 }
 
 const style = {
@@ -16,19 +16,19 @@ const style = {
   overflow: 'hidden',
   marginBottom: '10px',
   borderStyle: 'solid',
-  borderColor: '#ddd'
+  borderColor: '#ddd',
 }
 const styleControlsSide = {
   float: 'left',
   borderRight: 'solid 1px #ddd',
   boxSizing: 'border-box',
-  width: '280px'
+  width: '280px',
 }
 const styleComponentSide = {
-  marginLeft: '280px'
+  marginLeft: '280px',
 }
 const styleControlsTop = {
-  borderBottom: 'solid 1px #ddd'
+  borderBottom: 'solid 1px #ddd',
 }
 const styleComponentTop = {}
 
@@ -38,17 +38,17 @@ export default React.createClass({
   displayName: 'Demo.Layout',
 
   propTypes: {
-    fullWidth: PropTypes.bool.isRequired,
-    controlsEl: PropTypes.node.isRequired,
-    targetEl: PropTypes.node.isRequired,
-    background: PropTypes.oneOf(Object.keys(bgImages)).isRequired
+    fullWidth: T.bool.isRequired,
+    controlsEl: T.node.isRequired,
+    targetEl: T.node.isRequired,
+    background: T.oneOf(Object.keys(bgImages)).isRequired,
   },
 
   getTagretStyle() {
     const {fullWidth} = this.props
     return {
       ...(fullWidth ? styleComponentTop : styleComponentSide),
-      padding: !fullWidth ? '1em' : '1em 0'
+      padding: !fullWidth ? '1em' : '1em 0',
     }
   },
 
@@ -58,7 +58,7 @@ export default React.createClass({
       ...style,
       borderWidth: fullWidth ? '1px 0' : '1px',
       backgroundImage: bgImages[background],
-      backgroundColor: bgColors[background]
+      backgroundColor: bgColors[background],
     }
   },
 
@@ -76,6 +76,6 @@ export default React.createClass({
         {targetEl}
       </div>
     </div>
-  }
+  },
 
 })

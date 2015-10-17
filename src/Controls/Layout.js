@@ -1,18 +1,18 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 import flattenDeep from 'lodash/array/flattenDeep'
 import ControlNoop from './ControlNoop'
 
 const style = {
   background: '#eee',
   overflow: 'hidden',
-  fontFamily: 'Menlo, Monaco, Consolas, "Lucida Console", monospace'
+  fontFamily: 'Menlo, Monaco, Consolas, "Lucida Console", monospace',
 }
 const styleItemTop = {
   float: 'left',
-  width: '280px'
+  width: '280px',
 }
 const styleItemSide = {
-  marginBottom: '4px'
+  marginBottom: '4px',
 }
 
 export default React.createClass({
@@ -20,8 +20,8 @@ export default React.createClass({
   displayName: 'Demo.Controls.Layout',
 
   propTypes: {
-    children: PropTypes.node.isRequired,
-    onTop: PropTypes.bool.isRequired
+    children: T.node.isRequired,
+    onTop: T.bool.isRequired,
   },
 
   renderChildren() {
@@ -40,5 +40,5 @@ export default React.createClass({
     return <div style={style} className="react-demo__controls">
       {this.renderChildren()}
     </div>
-  }
+  },
 })

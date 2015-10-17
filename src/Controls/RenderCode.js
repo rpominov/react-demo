@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes as T} from 'react'
 import stringify from '../stringify'
 
 const style = {
@@ -7,7 +7,7 @@ const style = {
   padding: '4px',
   whiteSpace: 'pre',
   background: '#fff',
-  overflow: 'auto'
+  overflow: 'auto',
 }
 
 export default React.createClass({
@@ -15,8 +15,8 @@ export default React.createClass({
   displayName: 'Demo.Controls.RenderCode',
 
   propTypes: {
-    obj: PropTypes.node.isRequired,
-    indentDepth: PropTypes.number.isRequired
+    obj: T.node.isRequired,
+    indentDepth: T.number.isRequired,
   },
 
   render() {
@@ -24,6 +24,6 @@ export default React.createClass({
     return <div style={style} className="react-demo__render-code">
       {stringify(obj, {depthLim: indentDepth})}
     </div>
-  }
+  },
 
 })
