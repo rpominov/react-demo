@@ -85,7 +85,7 @@ export default React.createClass({
 
       <Description>
         Advanced mode. Instead of using the <tt>target</tt> prop
-        you can provide a custom render function. Just don't specify
+        you can provide a custom render function. Just don’t specify
         <tt>target</tt>, and pass a function as a child of <tt>Demo</tt>.
       </Description>
       <Demo props={{
@@ -98,7 +98,7 @@ export default React.createClass({
 
       <Description>
         In the advanced mode you also get access to the <tt>update</tt> function,
-        using which you are able to update the demo props' values.
+        using which you are able to update the demo props’ values.
         The <tt>update</tt> function is passed as a second argument
         to the custom render function. You're supossed to call <tt>update()</tt> similary
         to <tt>setState()</tt> — passing an object with props that you want to change.
