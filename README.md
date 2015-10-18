@@ -44,7 +44,7 @@ $ npm install react-demo
 ### The `Demo` component
 
 `Demo` is the main component of this library. It allows us to create a demo
-of our components with controlable props.
+of our components with controllable props.
 
 ```js
 import Demo from 'react-demo'
