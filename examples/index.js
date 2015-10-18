@@ -86,7 +86,7 @@ export default React.createClass({
       <Description>
         Advanced mode. Instead of using the <tt>target</tt> prop
         you can provide a custom render function. Just don’t specify
-        <tt>target</tt>, and pass a function as a child of <tt>Demo</tt>.
+        a <tt>target</tt>, and pass a function as a child of <tt>Demo</tt>.
       </Description>
       <Demo props={{
         label: P.string('Click me'),
