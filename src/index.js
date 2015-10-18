@@ -59,12 +59,10 @@ export default React.createClass({
   },
 
   updateValues(changes) {
-    this.setState({
-      values: {
-        ...this.state.values,
-        ...changes,
-      },
-    })
+    const updater = typeof changes === 'function'
+      ? state => ({values: changes(state.values)})
+      : state => ({values: {...state.values, ...changes}})
+    this.setState(updater)
   },
 
   render() {
