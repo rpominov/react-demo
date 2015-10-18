@@ -109,7 +109,7 @@ import Demo, {props as P} from 'react-demo'
 #### `props.text(initialValue)`
 
 The same as `props.string` but uses a textarea as the control, which allows us
-to imput multiline strings.
+to input multiline strings.
 
 ```js
 import Demo, {props as P} from 'react-demo'
