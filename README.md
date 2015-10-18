@@ -84,7 +84,7 @@ Accepts an object `{[propName]: propConfig}`.
 For each specified `propName` will be created a control on the panel,
 and the prop value will pe passed to the target component.
 
-The function that can create `propConfig` objects are available in `Demo.props`,
+The functions that can create `propConfig` objects are available in `Demo.props`,
 and described bellow in this docs.
 
 
