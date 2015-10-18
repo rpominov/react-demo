@@ -23,7 +23,7 @@ React.render(<Demo
 ![](http://g.recordit.co/IgZ2E9IUTm.gif)
 
 See [examples/index.js](https://github.com/rpominov/react-demo/blob/master/examples/index.js)
-for more examples. Also to run them locally you can do the following:
+for more examples. To run them locally do the following:
 
 ```
 $ npm install
@@ -43,8 +43,8 @@ $ npm install react-demo
 
 ### The `Demo` component
 
-`Demo` is the main component of this library. It allows you to create a demo
-of your components with controlable props.
+`Demo` is the main component of this library. It allows us to create a demo
+of our components with controlable props.
 
 ```js
 import Demo from 'react-demo'
@@ -60,7 +60,7 @@ import Demo from 'react-demo'
 
 #### `target`
 
-The target component that you want to create a demo of.
+The target component that we want to create a demo of.
 
 #### `fullWidth`
 
@@ -70,7 +70,7 @@ More precisely full width that avaliable to the `Demo` component.
 #### `background`
 
 Sets the background of the demo. Available options are `"light"`, `"dark"`, and `"none"`.
-The default value is `"light"` which gives you a Photoshop style light "transparent" background.
+The default value is `"light"` which gives us a Photoshop style light "transparent" background.
 
 #### `codeIndentDepth`
 
@@ -79,7 +79,7 @@ The more the value the deeper indentation will go.
 
 #### `props`
 
-This property allows you to configure the props for the demo target.
+This property allows us to configure the props for the demo target.
 Accepts an object `{[propName]: propConfig}`.
 For each specified `propName` will be created a control on the panel,
 and the prop value will pe passed to the target component.
@@ -123,7 +123,7 @@ import Demo, {props as P} from 'react-demo'
 ```
 
 
-### `props.bool(initialValue)`
+#### `props.bool(initialValue)`
 
 Creates a checkbox on the panel.
 
@@ -139,13 +139,13 @@ import Demo, {props as P} from 'react-demo'
 ```
 
 
-### `props.choices(options, [initialValue])`
+#### `props.choices(options, [initialValue])`
 
 Creates a select input in the panel. The `options` argument can be either
 an array of available options, or an object `{[label]: value}`.
 
-Note that you can pass objects of any type in `options` no matter
-if you use array or object. When array is used the values will be stringified
+Note that we can pass objects of any type in `options` no matter
+if we use array or object. When array is used the values will be stringified
 before using as labels in the control.
 
 Acepts optional `initialValue` as a second argument.
@@ -202,11 +202,11 @@ import Demo, {props as P} from 'react-demo'
 
 
 
-### `props.callback.log([mapFn])`
+#### `props.callback.log([mapFn])`
 
 Creates a log widget in the panel, and passes a callback to the target component.
-Accepts optional `mapFn` that allows you to transform callback args
-before they will be shown in the log. Usable when you don't want to see huge
+Accepts optional `mapFn` that allows us to transform callback args
+before they will be shown in the log. Usable when we don't want to see huge
 event objects in the log for instance.
 
 ```js
@@ -221,7 +221,7 @@ import Demo, {props as P} from 'react-demo'
 ```
 
 
-### `props.callback.logLatest([mapFn])`
+#### `props.callback.logLatest([mapFn])`
 
 Same as `callback.log`, but shows only the last item in the log.
 Usable if callback may be called too frequently.
@@ -237,3 +237,40 @@ import Demo, {props as P} from 'react-demo'
 />
 ```
 
+
+### Advanced mode
+
+The advanced mode allows us to create more complex demos.
+To use advanced mode instead of specifying `target` prop,
+pass a custom render function as a child of `Demo`.
+
+The custom render fucntion accepts `props` as the first argument.
+The following two snippets are equivalent.
+
+```js
+// Normal mode
+<Demo target={Foo} ... />
+
+// Same in advanced mode
+<Demo ... >
+  {props => <Foo {...props} />}
+</Demo>
+```
+
+In the advanced mode we also get access to the `update` function,
+using which we are able to update the demo props' values.
+The `update` function is passed as a second argument
+to the custom render function. We're supossed to call `update()` similary
+to `setState()` — passing an object with props that we want to change.
+
+```js
+<Demo props={{value: P.string('foo')}}>
+  {
+    (props, update) =>
+      <input
+        value={props.value}
+        onChange={e => {update({value: e.target.value})}}
+      />
+  }
+</Demo>
+```
