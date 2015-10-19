@@ -1,5 +1,6 @@
 import isRegexp from 'is-regexp'
 import isObject from 'isobject'
+import React from 'react'
 
 // Chrome on my machine had performance issues
 // with a number greater than 20 and when JSX handler disabled
@@ -63,9 +64,7 @@ function wrapJsxChildren(x) {
 }
 
 function handleJsx(x, next, seen, indent) {
-  // we'd better use TestUtils.isReactElement(),
-  // but hopefully we'll avoid import whole `React/addons` with this tiny hack
-  if (x && x._isReactElement) {
+  if (React.isValidElement(x)) {
     const lastIndent = indent === '' ? '' : indent.replace(/\s\s$/, '')
     const name = typeof x.type === 'string' ? x.type : (x.type.displayName || 'Unknown')
     const keys = Object.keys(x.props)
