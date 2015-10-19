@@ -185,7 +185,7 @@ import Demo, {props as P} from 'react-demo'
 ```
 
 
-#### `props.constan(value)`
+#### `props.constant(value)`
 
 Allows us set a constant value for a prop. Doesn't create a control on the panel.
 
@@ -195,7 +195,7 @@ import Demo, {props as P} from 'react-demo'
 <Demo
   ...
   props={{
-    foo: P.constan('bar'),
+    foo: P.constant('bar'),
   }}
 />
 ```
