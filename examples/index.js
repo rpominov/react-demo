@@ -27,7 +27,7 @@ const MyButton = React.createClass({
 const Description = React.createClass({
 
   propTypes: {
-    children: T.string.isRequired,
+    children: T.node.isRequired,
   },
 
   render() {

@@ -27,7 +27,7 @@ export default React.createClass({
   displayName: 'Demo.Controls.InputJson',
 
   propTypes: {
-    value: T.string.isRequired,
+    value: T.any.isRequired,
     onChange: T.func.isRequired,
   },
 

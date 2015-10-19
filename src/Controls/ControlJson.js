@@ -8,7 +8,7 @@ export default React.createClass({
 
   propTypes: {
     name: T.string.isRequired,
-    value: T.string.isRequired,
+    value: T.any.isRequired,
     onChange: T.func.isRequired,
   },
 
