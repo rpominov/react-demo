@@ -1,6 +1,10 @@
 import isRegexp from 'is-regexp'
 import isObject from 'isobject'
 
+// Chrome on my machine had performance issues
+// with a number greater than 20 and when JSX handler disabled
+const MAX_DEPTH = 20
+
 
 function handlePrimitive(x) {
   const t = typeof x
@@ -121,13 +125,16 @@ const handlers = [
 
 export default function stringify(_x, opts) {
   const seen = []
-  function s(x, {indent = '\n  ', depthLim = 0} = {}) {
+  function s(x, {indent = '\n  ', depthLim = 0, depth = 0} = {}) {
+    if (depth > MAX_DEPTH) {
+      return '__DepthLimit'
+    }
     if (seen.indexOf(x) !== -1) {
       return '__Circular'
     }
     let i = 0
     let result
-    const next = (__x) => s(__x, {indent: indent + '  ', depthLim: depthLim - 1})
+    const next = (__x) => s(__x, {indent: indent + '  ', depthLim: depthLim - 1, depth: depth + 1})
     do {
       result = handlers[i](x, next, seen, depthLim > 0 ? indent : '')
       i++
