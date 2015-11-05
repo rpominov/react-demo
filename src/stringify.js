@@ -67,7 +67,10 @@ function handleJsx(x, next, seen, indent) {
   if (React.isValidElement(x)) {
     const lastIndent = indent === '' ? '' : indent.replace(/\s\s$/, '')
     const name = typeof x.type === 'string' ? x.type : (x.type.displayName || 'Unknown')
-    const keys = Object.keys(x.props)
+    const defaultProps = x.type && (typeof x.type.getDefaultProps === 'function')
+      ? x.type.getDefaultProps()
+      : {}
+    const keys = Object.keys(x.props).filter(key => defaultProps[key] !== x.props[key])
     let props = ''
     let children = null
     if (keys.length > 0) {
