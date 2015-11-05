@@ -78,7 +78,10 @@ function handleJsx(x, next, seen, indent) {
       const _keys = keys.filter(key => key !== 'children')
       if (_keys.length > 0) {
         const joint = indent === '' ? ' ' : indent
-        props = _keys.map(key => `${key}=${wrapJsxProp(next(x.props[key]))}`)
+        props = _keys.map(key => {
+          const val = x.props[key]
+          return val === true ? key : `${key}=${wrapJsxProp(next(val))}`
+        })
         props = `${joint}${props.join(joint)}${lastIndent}`
       }
       if (keys.indexOf('children') !== -1) {
