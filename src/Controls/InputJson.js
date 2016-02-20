@@ -48,11 +48,16 @@ export default React.createClass({
   },
 
   handleChange(event) {
-    const nextStrValue = event.target.value
+    const strValue = event.target.value
+    let invalid = true
+    let value
     try {
-      this.props.onChange(JSON.parse(nextStrValue))
-    } catch (e) {
-      this.setState({strValue: nextStrValue, invalid: true})
+      value = JSON.parse(strValue)
+      invalid = false
+    } catch (e) {} // eslint-disable-line no-empty
+    this.setState({strValue, invalid})
+    if (!invalid) {
+      this.props.onChange(value)
     }
   },
 
