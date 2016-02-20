@@ -106,6 +106,21 @@ import Demo, {props as P} from 'react-demo'
 />
 ```
 
+#### `props.number(initialValue)`
+
+Creates a number input in the panel.
+
+```js
+import Demo, {props as P} from 'react-demo'
+
+<Demo
+  ...
+  props={{
+    foo: P.number(10),
+  }}
+/>
+```
+
 #### `props.text(initialValue)`
 
 The same as `props.string` but uses a textarea as the control, which allows us

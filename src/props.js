@@ -1,5 +1,6 @@
 import Noop from './Controls/ControlNoop'
 import String from './Controls/ControlString'
+import Number from './Controls/ControlNumber'
 import Text from './Controls/ControlText'
 import Json from './Controls/ControlJson'
 import Bool from './Controls/ControlBool'
@@ -20,6 +21,14 @@ export default {
     return {
       type: 'value',
       Control: String,
+      initialValue,
+    }
+  },
+
+  number(initialValue) {
+    return {
+      type: 'value',
+      Control: Number,
       initialValue,
     }
   },
