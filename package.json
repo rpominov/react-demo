@@ -19,7 +19,7 @@
     "react",
     "demo"
   ],
-  "author": "Roman Pominov <rpominov@gmail.com> (http://pozadi.github.io/)",
+  "author": "Roman Pominov <rpominov@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rpominov/react-demo/issues"
