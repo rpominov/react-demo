@@ -1,6 +1,6 @@
 # React-demo [![Build Status](https://travis-ci.org/rpominov/react-demo.svg?branch=master)](https://travis-ci.org/rpominov/react-demo)
 
-A React-component for creating demos of other components.
+A React-component for creating demos of other components. See also [react-demo-library](https://github.com/rpominov/react-demo-library)
 
 
 ## Example
