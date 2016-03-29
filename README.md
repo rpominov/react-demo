@@ -23,7 +23,8 @@ React.render(<Demo
 ![](http://g.recordit.co/IgZ2E9IUTm.gif)
 
 See [examples/index.js](https://github.com/rpominov/react-demo/blob/master/examples/index.js)
-for more examples. To run them locally do the following:
+for more examples. You can play with it online at [webpackbin.com](http://www.webpackbin.com/4J0Js5QAg), 
+or to run them locally do the following:
 
 ```
 $ npm install
