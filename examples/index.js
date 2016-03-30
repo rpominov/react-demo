@@ -160,6 +160,15 @@ export default React.createClass({
       }} />
 
 
+      <Description>
+        The <tt>Demo.props.number()</tt> allows us to set a number
+        value for a prop.
+      </Description>
+      <Demo target="p" props={{
+        children: P.number(36),
+      }} />
+
+
     </div>
   },
 })

@@ -14,7 +14,7 @@ export default React.createClass({
   displayName: 'Demo.Controls.InputNumber',
 
   propTypes: {
-    value: T.string.isRequired,
+    value: T.number.isRequired,
     onChange: T.func.isRequired,
   },
 
