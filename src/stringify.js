@@ -85,7 +85,11 @@ function handleJsx(x, next, seen, indent) {
         props = `${joint}${props.join(joint)}${lastIndent}`
       }
       if (keys.indexOf('children') !== -1) {
-        children = wrapJsxChildren(next(x.props.children))
+        if (Array.isArray(x.props.children)) {
+          children = x.props.children.map(c => wrapJsxChildren(next(c))).join(`${indent}`)
+        } else {
+          children = wrapJsxChildren(next(x.props.children))
+        }
       }
       seen.pop()
     }
