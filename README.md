@@ -23,7 +23,7 @@ React.render(<Demo
 ![](http://g.recordit.co/IgZ2E9IUTm.gif)
 
 See [examples/index.js](https://github.com/rpominov/react-demo/blob/master/examples/index.js)
-for more examples. You can play with it online at [webpackbin.com](http://www.webpackbin.com/4J0Js5QAg), 
+for more examples. You can play with it online at [webpackbin.com](http://www.webpackbin.com/4J0Js5QAg),
 or to run them locally do the following:
 
 ```
@@ -53,6 +53,7 @@ import Demo from 'react-demo'
 <Demo
   target={DemoTargetComponent}
   fullWidth={false}
+  panelBelow={false}
   background="light"
   codeIndentDepth={3}
   props={propsConfig}
@@ -67,6 +68,11 @@ The target component that we want to create a demo of.
 
 If set to `true` full page width will be available to the demo target component.
 More precisely full width that avaliable to the `Demo` component.
+
+#### `panelBelow`
+
+If set to `true` the comtrols panel will be shown below the demo.
+Should be used in combination with `fullWidth`.
 
 #### `background`
 
