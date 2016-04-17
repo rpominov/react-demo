@@ -1,3 +1,7 @@
+## 1.4.0 (Apr 18, 2016)
+
+ - The `panelBelow` option removed, that's now the default
+
 ## 1.3.0 (Apr 16, 2016)
 
  - A bug with multiple children in the JSX preview fixed
