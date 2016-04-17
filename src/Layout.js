@@ -27,9 +27,9 @@ const styleControlsSide = {
 const styleComponentSide = {
   marginLeft: '280px',
 }
-const styleControlsTop = panelBelow => ({
-  [`border${panelBelow ? 'Top' : 'Bottom'}`]: 'solid 1px #ddd',
-})
+const styleControlsBottom = {
+  borderTop: 'solid 1px #ddd',
+}
 const styleComponentTop = {}
 
 
@@ -65,12 +65,12 @@ export default React.createClass({
 
   getControlsStyle() {
     return this.props.fullWidth
-      ? styleControlsTop(this.props.panelBelow)
+      ? styleControlsBottom
       : styleControlsSide
   },
 
   render() {
-    const {controlsEl, targetEl, panelBelow} = this.props
+    const {controlsEl, targetEl, fullWidth} = this.props
     const demo = <div style={this.getTagretStyle()} className="react-demo__target-wrap" key="demo">
       {targetEl}
     </div>
@@ -78,7 +78,7 @@ export default React.createClass({
       {controlsEl}
     </div>
     return <div style={this.getWrapStyle()} className="react-demo">
-      {panelBelow ? [demo, panel] : [panel, demo]}
+      {fullWidth ? [demo, panel] : [panel, demo]}
     </div>
   },
 

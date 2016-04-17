@@ -69,11 +69,6 @@ The target component that we want to create a demo of.
 If set to `true` full page width will be available to the demo target component.
 More precisely full width that avaliable to the `Demo` component.
 
-#### `panelBelow`
-
-If set to `true` the comtrols panel will be shown below the demo.
-Should be used in combination with `fullWidth`.
-
 #### `background`
 
 Sets the background of the demo. Available options are `"light"`, `"dark"`, and `"none"`.
