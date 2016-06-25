@@ -1,10 +1,41 @@
 import React, {PropTypes as T} from 'react'
 import mapValues from 'lodash/object/mapValues'
 import pick from 'lodash/object/pick'
+import pairs from 'lodash/object/pairs'
+import zipObject from 'lodash/array/zipObject'
+import forOwn from 'lodash/object/forOwn'
+import set from 'lodash/object/set'
 import propsDefenitions from './props'
 import Layout from './Layout'
 import Controls from './Controls'
 import stringify from './stringify'
+
+const flattenObjProps = (prop, path) => pairs(prop)
+  .map(([key, value]) => {
+    const fullPath = [...path, key]
+
+    if (value.type !== 'shape') {
+      return [[fullPath.join('.'), value]]
+    }
+
+    return flattenObjProps(value.props, fullPath)
+  })
+  .reduce((head, tail) => head.concat(tail), [])
+
+const flattenProps = (props, path = []) => zipObject(flattenObjProps(props, path))
+
+const nestProps = flatProps => {
+  const props = {}
+
+  forOwn(flatProps, (value, key) => {
+    set(props, key, value)
+  })
+
+  return props
+}
+
+const getValueProps = props => pick(props, x => x.type === 'value')
+const getCallbackProps = props => pick(props, x => x.type === 'callback')
 
 
 export default React.createClass({
@@ -32,22 +63,17 @@ export default React.createClass({
   },
 
   getInitialState() {
+    const { props } = this.props
+    const flatProps = flattenProps(props)
+
     return {
-      values: mapValues(this.getPropsValue(), x => x.initialValue),
-      logs: mapValues(this.getPropsCallback(), () => []),
+      values: mapValues(getValueProps(flatProps), x => x.initialValue),
+      logs: mapValues(getCallbackProps(flatProps), () => []),
     }
   },
 
-  getPropsValue() {
-    return pick(this.props.props, x => x.type === 'value')
-  },
-
-  getPropsCallback() {
-    return pick(this.props.props, x => x.type === 'callback')
-  },
-
-  getCallbacks() {
-    return mapValues(this.getPropsCallback(), (x, key) => {
+  getCallbacks(props) {
+    return mapValues(getCallbackProps(props), (x, key) => {
       return (...args) => {
         const {map, callbackType} = x
         const result = map ? stringify(map(...args)) : args.map(stringify).join(', ')
@@ -67,9 +93,11 @@ export default React.createClass({
 
   render() {
     const {values, logs} = this.state
-    const {children, fullWidth, codeIndentDepth, background} = this.props
+    const {children, fullWidth, codeIndentDepth, background, props} = this.props
 
-    const targetProps = {...values, ...this.getCallbacks()}
+    const flatProps = flattenProps(props)
+
+    const targetProps = nestProps({...values, ...this.getCallbacks(flatProps)})
     const targetEl = children
       ? children(targetProps, this.updateValues)
       : <this.props.target {...targetProps} />
@@ -80,7 +108,7 @@ export default React.createClass({
       codeIndentDepth,
       targetEl,
       onTop: fullWidth,
-      props: this.getPropsValue(),
+      props: getValueProps(flatProps),
       onChange: this.updateValues,
     }
     const controlsEl = <Controls {...controlsProps} />

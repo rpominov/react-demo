@@ -49,6 +49,13 @@ export default {
     }
   },
 
+  shape(props) {
+    return {
+      type: 'shape',
+      props,
+    }
+  },
+
   bool(initialValue) {
     return {
       type: 'value',
