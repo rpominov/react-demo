@@ -1,3 +1,7 @@
+## 1.5.0 (Jun 25, 2016)
+
+ - `Demo.props.shape` added (thanks [@faergeek](https://github.com/faergeek))
+
 ## 1.4.0 (Apr 18, 2016)
 
  - The `panelBelow` option removed, that's now the default
