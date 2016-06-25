@@ -43,6 +43,30 @@ const Description = React.createClass({
 
 })
 
+const PostCard = React.createClass({
+
+  propTypes: {
+    author: T.shape({
+      firstName: T.string.isRequired,
+      lastName: T.string.isRequired,
+    }).isRequired,
+
+    title: T.string.isRequired,
+  },
+
+  render() {
+    const { author, title } = this.props
+
+    return (
+      <div>
+        <h2>{title}</h2>
+        <p><small>By {author.firstName} {author.lastName}</small></p>
+      </div>
+    )
+  },
+
+})
+
 
 
 export default React.createClass({
@@ -166,6 +190,20 @@ export default React.createClass({
       </Description>
       <Demo target="p" props={{
         children: P.number(36),
+      }} />
+
+
+      <Description>
+        The <tt>Demo.props.shape()</tt> allows us to describe the shape of
+        object prop.
+      </Description>
+      <Demo target={PostCard} props={{
+        author: P.shape({
+          firstName: P.string('John'),
+          lastName: P.string('Doe'),
+        }),
+
+        title: P.string('My cool post'),
       }} />
 
 

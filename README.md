@@ -185,6 +185,28 @@ import Demo, {props as P} from 'react-demo'
 ```
 
 
+#### `props.shape(props)`
+
+Creates a nested object properties configuration which can include any property
+configuration from this list.
+
+```js
+import Demo, {props as P} from 'react-demo'
+
+<Demo
+  ...
+  props={{
+    author: P.shape({
+      firstName: P.string('John'),
+      lastName: P.string('Doe'),
+    }),
+
+    title: P.string('My cool post'),
+  }}
+/>
+```
+
+
 
 #### `props.json(initialValue)`
 
