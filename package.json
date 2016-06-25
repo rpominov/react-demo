@@ -1,6 +1,6 @@
 {
   "name": "react-demo",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "A React-component for creating demos of other components",
   "main": "dist/index.js",
   "scripts": {
