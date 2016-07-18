@@ -1,6 +1,10 @@
 ## 1.5.0 (Jun 25, 2016)
 
  - `Demo.props.shape` added (thanks [@faergeek](https://github.com/faergeek))
+ 
+## 1.4.1 (Apr 26, 2016)
+
+ - If displayName is not set, function name is used instead in code preview (thanks [@pscanf](https://github.com/pscanf)
 
 ## 1.4.0 (Apr 18, 2016)
 
