@@ -31,12 +31,14 @@
     "eslint": "1.7.1",
     "eslint-config-airbnb": "0.1.0",
     "eslint-plugin-react": "3.6.2",
-    "react": "0.14.7",
-    "react-heatpack": "2.0.0"
+    "react": "15.6.1",
+    "react-heatpack": "3.0.1"
   },
   "dependencies": {
+    "create-react-class": "15.6.0",
     "is-regexp": "1.0.0",
     "isobject": "2.0.0",
-    "lodash": "3.10.1"
+    "lodash": "3.10.1",
+    "prop-types": "15.5.10"
   }
 }

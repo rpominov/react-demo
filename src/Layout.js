@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 
 const bgImages = {
   dark: 'url("data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%20200%22%3E%3Cg%3E%3Cpath%20fill=%22#777%22%20d=%22M0%200h100v100H0zm100%20100h100v100H100z%22/%3E%3Cpath%20fill=%22#555%22%20d=%22M100%200h100v100H100zM0%20100h100v100H0z%22/%3E%3C/g%3E%3C/svg%3E")',
@@ -33,7 +35,7 @@ const styleControlsBottom = {
 const styleComponentTop = {}
 
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Layout',
 

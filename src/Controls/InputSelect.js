@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 import findIndex from 'lodash/array/findIndex'
 
 const style = {
@@ -12,7 +14,7 @@ const optionType = T.shape({
   value: T.any,
 })
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls.InputSelect',
 

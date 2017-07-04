@@ -1,8 +1,10 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 import Group from './Group'
 import InputCheckbox from './InputCheckbox'
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls.ControlBool',
 

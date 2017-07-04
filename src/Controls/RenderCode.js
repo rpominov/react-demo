@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 import stringify from '../stringify'
 
 const style = {
@@ -10,7 +12,7 @@ const style = {
   overflow: 'auto',
 }
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls.RenderCode',
 

@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 
 function styles(invalid) {
   return {
@@ -9,7 +11,7 @@ function styles(invalid) {
   }
 }
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls.InputNumber',
 

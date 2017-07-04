@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 import flattenDeep from 'lodash/array/flattenDeep'
 import ControlNoop from './ControlNoop'
 
@@ -15,7 +17,7 @@ const styleItemSide = {
   marginBottom: '4px',
 }
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls.Layout',
 

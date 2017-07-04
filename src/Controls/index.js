@@ -1,10 +1,12 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 import Layout from './Layout'
 import Log from './Log'
 import RenderCode from './RenderCode'
 
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls',
 

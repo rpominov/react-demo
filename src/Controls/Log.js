@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 import Group from './Group'
 
 const style = {
@@ -15,7 +17,7 @@ const styleItem = {
   borderBottom: 'solid 1px #e5e5e5',
 }
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls.Log',
 

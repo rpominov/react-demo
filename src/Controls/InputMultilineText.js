@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 
 const style = {
   display: 'block',
@@ -8,7 +10,7 @@ const style = {
   borderColor: '#cccccc',
 }
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls.InputMultilineText',
 

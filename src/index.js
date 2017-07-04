@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 import mapValues from 'lodash/object/mapValues'
 import pick from 'lodash/object/pick'
 import pairs from 'lodash/object/pairs'
@@ -38,7 +40,7 @@ const getValueProps = props => pick(props, x => x.type === 'value')
 const getCallbackProps = props => pick(props, x => x.type === 'callback')
 
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo',
 
@@ -86,8 +88,8 @@ export default React.createClass({
 
   updateValues(changes) {
     const updater = typeof changes === 'function'
-      ? state => ({values: changes(state.values)})
-      : state => ({values: {...state.values, ...changes}})
+      ? state => {return {values: changes(state.values)}}
+      : state => {return {values: {...state.values, ...changes}}}
     this.setState(updater)
   },
 

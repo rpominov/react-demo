@@ -1,4 +1,6 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
+import createReactClass from 'create-react-class'
+import T from 'prop-types'
 
 const style = {
   fontSize: '11px',
@@ -10,7 +12,7 @@ const styleLabel = {
   color: '#666',
 }
 
-export default React.createClass({
+export default createReactClass({
 
   displayName: 'Demo.Controls.Group',
 
