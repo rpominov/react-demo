@@ -1,7 +1,13 @@
+## 2.0.0 (Jul 4, 2017)
+
+This version might be incompatible with React versions `<15`
+
+ - Start using `prop-types` and `create-react-class` packages instead of `React.*` properties
+
 ## 1.5.0 (Jun 25, 2016)
 
  - `Demo.props.shape` added (thanks [@faergeek](https://github.com/faergeek))
- 
+
 ## 1.4.1 (Apr 26, 2016)
 
  - If displayName is not set, function name is used instead in code preview (thanks [@pscanf](https://github.com/pscanf))
